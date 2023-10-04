@@ -31,8 +31,8 @@ pytest -m integration
 
 The pipeline is constructed with the following input parameters:
 
-1. Path to the Descriptor name lookup file. This file maps internal Descriptor ids to Descriptor names.
-2. Path to Desciptor unique identifier file. This file maps internal Descriptor ids to NLM DUIs.
+1. Path to the term name lookup file. This file maps internal term ids to term names.
+2. Path to term unique identifier file. This file maps internal term ids to NLM UIs.
 3. Path to subheading name lookup file. This file maps NLM QUIs to subheading names.
 4. Sagemaker endpoint name for CNN model.
 5. Sagemaker endpoint name for Pointwise model.
@@ -50,8 +50,8 @@ Example usage for async endpoints:
 ```
 from mtix import create_async_pipeline
 
-pipeline = create_async_pipeline("path/to/main_heading_names_2023_mesh.tsv", 
-                                "path/to/main_headings_2023_mesh.tsv", 
+pipeline = create_async_pipeline("path/to/mesh_heading_names_2023.tsv", 
+                                "path/to/mesh_headings_2023.tsv", 
                                 "path/to/subheading_names_2023_mesh.tsv",
                                 "raear-cnn-endpoint-2023-v1-async", 
                                 "raear-pointwise-endpoint-2023-v1-async", 
@@ -73,8 +73,8 @@ Example usage for real-time endpoints:
 ```
 from mtix import create_real_time_pipeline
 
-pipeline = create_real_time_pipeline("path/to/main_heading_names_2023_mesh.tsv", 
-                                    "path/to/main_headings_2023_mesh.tsv", 
+pipeline = create_real_time_pipeline("path/to/mesh_heading_names_2023.tsv", 
+                                    "path/to/mesh_headings_2023.tsv", 
                                     "path/to/subheading_names_2023_mesh.tsv",
                                     "raear-cnn-endpoint-2023-v1", 
                                     "raear-pointwise-endpoint-2023-v1", 
