@@ -2,7 +2,7 @@ from .data import *
 import gzip
 import json
 from mtix import create_async_pipeline
-from mtix.sagemaker_factory import create_descriptor_prediction_pipeline
+from mtix.sagemaker_factory import create_mesh_heading_prediction_pipeline
 import os.path
 import pytest
 from .utils import compute_metrics, TestCaseBase
@@ -26,7 +26,7 @@ TEST_SET_SUBHEADING_GROUND_TRUTH_PATH =                 os.path.join(DATA_DIR, "
 class TestDescriptorPredictionPipeline(TestCaseBase):
 
     def setUp(self):
-        self.pipeline = create_descriptor_prediction_pipeline(DESC_NAME_LOOKUP_PATH, 
+        self.pipeline = create_mesh_heading_prediction_pipeline(DESC_NAME_LOOKUP_PATH, 
                                             DUI_LOOKUP_PATH, 
                                             "raear-cnn-endpoint-2023-v1-async", 
                                             "raear-pointwise-endpoint-2023-v1-async", 

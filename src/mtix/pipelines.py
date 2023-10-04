@@ -2,7 +2,7 @@ from .utils import average_top_results, Base64Helper, MedlineDateParser, PubMedX
 
 
 # Note: top results are not always sorted
-class DescriptorPredictionPipeline:
+class MeshHeadingPredictionPipeline:
 
     def __init__(self, input_data_parser, citation_data_sanitizer, cnn_model_top_n_predictor, pointwise_model_top_n_predictor, listwise_model_top_n_predictor, results_formatter):
         self.input_data_parser = input_data_parser

@@ -1,5 +1,5 @@
 from .data import *
-from mtix.pipelines import DescriptorPredictionPipeline, IndexingPipeline, MtiJsonResultsFormatter
+from mtix.pipelines import MeshHeadingPredictionPipeline, IndexingPipeline, MtiJsonResultsFormatter
 from mtix.predictors import CnnModelTop100Predictor, PointwiseModelTopNPredictor, ListwiseModelTopNPredictor, SubheadingPredictor
 from mtix.utils import CitationDataSanitizer, PubMedXmlInputDataParser
 import pytest
@@ -26,7 +26,7 @@ class TestDescriptorPredictionPipeline(TestCase):
         self.listwise_predictor.predict = MagicMock(return_value=LISTWISE_RESULTS)
         self.results_formatter = MtiJsonResultsFormatter(DESC_NAME_LOOKUP, DUI_LOOKUP, THRESHOLD)
         self.results_formatter.format = Mock(wraps=self.results_formatter.format)
-        self.pipeline = DescriptorPredictionPipeline(input_data_parser, self.sanitizer, self.cnn_predictor, self.pointwise_predictor, self.listwise_predictor, self.results_formatter)
+        self.pipeline = MeshHeadingPredictionPipeline(input_data_parser, self.sanitizer, self.cnn_predictor, self.pointwise_predictor, self.listwise_predictor, self.results_formatter)
 
     def test_predict(self):
         predictions = self.pipeline.predict(PUBMED_XML_INPUT_DATA)
@@ -45,7 +45,7 @@ class TestDescriptorPredictionPipeline(TestCase):
 class TestIndexingPipeline(TestCase):
 
     def setUp(self):
-        self.descriptorPredictionPipeline = DescriptorPredictionPipeline(None, None, None, None, None, None)
+        self.descriptorPredictionPipeline = MeshHeadingPredictionPipeline(None, None, None, None, None, None)
         self.descriptorPredictionPipeline.predict = MagicMock(return_value=EXPECTED_DESCRIPTOR_PREDICTIONS)
         self.subheading_predictor = SubheadingPredictor(None, None, None, None)
         self.subheading_predictor.predict = MagicMock(return_value=EXPECTED_DESCRIPTOR_PREDICTIONS_WITH_SUBHEADINGS)
