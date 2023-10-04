@@ -5,8 +5,8 @@ def readme():
         return f.read()
 
 setup(name="mtix",
-      version="2.1.0",
-      description="MTIX MeSH 2023 main heading (Descriptor) and subheading (Qualifier) prediction pipeline.",
+      version="3.0.0",
+      description="MTIX MeSH 2023 term (Main Heading, Subheading, Publication Type, and SCR) prediction pipeline.",
       long_description=readme(),
       url="https://github.com/ncbi/mtix/",
       author="Alastair Rae",
