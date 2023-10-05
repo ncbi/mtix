@@ -6,10 +6,10 @@ import xml.etree.ElementTree as ET
 import zlib
 
 
-BASELINE_FILE_PATH_TEMPLATE="/net/intdev/pubmed_mti/ncbi/working_dir/samt-2023-v1/medline_data/{0:04d}.xml.gz"
+BASELINE_FILE_PATH_TEMPLATE="/net/intdev/pubmed_mti/ncbi/working_dir/mtix/mh_scr_pt_prediction/medline_data_2023/pubmed23n{0:04d}.xml.gz"
 ENCODING="utf-8"
 NUM_BASELINE_FILES = 1166
-WORKING_DIR="/net/intdev/pubmed_mti/ncbi/working_dir/mtix/scripts/create_test_set_data"
+WORKING_DIR="/net/intdev/pubmed_mti/ncbi/working_dir/mtix/scripts_v3/create_test_set_data"
 
 
 def base64_encode(text, level=-1):
@@ -59,8 +59,8 @@ def save_test_set_data(pmid_list, data, path):
                 
 
 def main():
-    test_set_path =      os.path.join(WORKING_DIR, "test_set.jsonl.gz")
-    test_set_data_path = os.path.join(WORKING_DIR, "test_set_data.json")
+    test_set_path =      os.path.join(WORKING_DIR, "val_set_2017-2023.jsonl.gz")
+    test_set_data_path = os.path.join(WORKING_DIR, "val_set_2017-2023_data.json")
     pmids_list = get_test_set_pmids(test_set_path)
     data = get_test_set_data(pmids_list)
     save_test_set_data(pmids_list, data, test_set_data_path)
