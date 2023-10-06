@@ -1,3 +1,4 @@
+import copy
 import json
 import os.path
 import pandas as pd
@@ -30,7 +31,8 @@ def main():
     test_set_path =                  os.path.join(WORKING_DIR, "val_set.jsonl")
 
     subheading_names = create_lookup(subheading_names_path)
-    mesh_heading_ground_truth_mod = json.load(open(mesh_heading_ground_truth_path))
+    mesh_heading_ground_truth = json.load(open(mesh_heading_ground_truth_path))
+    mesh_heading_ground_truth_mod = copy.deepcopy(mesh_heading_ground_truth)
     
     test_set_indexing = get_test_set_indexing(test_set_path)
 

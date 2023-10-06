@@ -4,7 +4,7 @@ import os.path
 import pandas as pd
 
 
-WORKING_DIR="/net/intdev/pubmed_mti/ncbi/working_dir/mtix/scripts/create_test_set_subheading_predictions"
+WORKING_DIR="/net/intdev/pubmed_mti/ncbi/working_dir/mtix/scripts_v3/create_test_set_subheading_predictions"
 
 
 def create_lookup(path):
@@ -31,29 +31,30 @@ def create_result_lookup(path):
 
 
 def main():
-    descriptor_predictions_path =      os.path.join(WORKING_DIR, "test_set_2017-2023_Listwise_Avg_Results.json")
-    subheading_results_path =          os.path.join(WORKING_DIR, "test_set_2017-2023_Chained_Subheading_Results.tsv")
-    subheading_names_path =            os.path.join(WORKING_DIR, "subheading_names.tsv")
-    subheading_predictions_path =      os.path.join(WORKING_DIR, "test_set_2017-2023_Chained_Subheading_Predictions.json")
+    mesh_heading_predictions_path =    os.path.join(WORKING_DIR, "val_set_2017-2023_Listwise_Avg_Results.json")
+    subheading_results_path =          os.path.join(WORKING_DIR, "val_set_2017-2023_Chained_Subheading_Results.tsv")
+    subheading_names_path =            os.path.join(WORKING_DIR, "subheading_names_2023_mesh.tsv")
+    subheading_predictions_path =      os.path.join(WORKING_DIR, "val_set_2017-2023_Chained_Subheading_Predictions.json")
     
-    descriptor_predictions = json.load(open(descriptor_predictions_path))
+    mesh_heading_predictions = json.load(open(mesh_heading_predictions_path))
     subheading_names = create_lookup(subheading_names_path)
     results_lookup = create_result_lookup(subheading_results_path)
 
-    subheading_predictions = copy.deepcopy(descriptor_predictions)
+    subheading_predictions = copy.deepcopy(mesh_heading_predictions)
     for citation in subheading_predictions:
         pmid = citation["PMID"]
-        for descriptor_prediction in citation["Indexing"]:
-            subheadings = []
-            descriptor_prediction["Subheadings"] = subheadings
-            dui = descriptor_prediction["ID"]
-            if (pmid in results_lookup) and (dui in results_lookup[pmid]):
-                for qui, score in sorted(results_lookup[pmid][dui].items(), key=lambda x: x[1], reverse=True):
-                    subheadings.append({
-                            "ID": qui,
-                            "IM": "NO",
-                            "Name": subheading_names[qui],
-                            "Reason": f"score: {score:.3f}"})
+        for indexing_prediction in citation["Indexing"]:
+            if indexing_prediction["Type"].lower() ==  "descriptor" or indexing_prediction["Type"].lower() == "check tag":
+                subheadings = []
+                indexing_prediction["Subheadings"] = subheadings
+                dui = indexing_prediction["ID"]
+                if (pmid in results_lookup) and (dui in results_lookup[pmid]):
+                    for qui, score in sorted(results_lookup[pmid][dui].items(), key=lambda x: x[1], reverse=True):
+                        subheadings.append({
+                                "ID": qui,
+                                "IM": "NO",
+                                "Name": subheading_names[qui],
+                                "Reason": f"score: {score:.3f}"})
 
     json.dump(subheading_predictions, open(subheading_predictions_path, "wt"), ensure_ascii=False, indent=4)
 
