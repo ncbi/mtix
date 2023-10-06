@@ -37,9 +37,9 @@ class CnnModelTop100Predictor:
 
 class PointwiseModelTopNPredictor:
 
-    def __init__(self, huggingface_endpoint, desc_name_lookup, top_n):
+    def __init__(self, huggingface_endpoint, passage_lookup, top_n):
         self.huggingface_endpoint = huggingface_endpoint
-        self.desc_name_lookup = desc_name_lookup
+        self.passage_lookup = passage_lookup
         self.top_n = top_n
  
     def predict(self, citation_data_lookup, input_top_results):
@@ -54,7 +54,7 @@ class PointwiseModelTopNPredictor:
         for p_id, _ in sorted(citation_top_results.items(), key=lambda x: x[1], reverse=True)[:self.top_n]:
             label_id = int(p_id)
             query = QUERY_TEMPLATE.format(journal_title=citation_data["journal_title"], title=citation_data["title"], abstract=citation_data["abstract"])
-            passage = self.desc_name_lookup[label_id]
+            passage = self.passage_lookup[label_id]
             input_list.append([[query, passage]])
             label_id_list.append(label_id)
         return input_list, label_id_list
@@ -96,9 +96,9 @@ class PointwiseModelTopNPredictor:
 
 class ListwiseModelTopNPredictor:
 
-    def __init__(self, huggingface_endpoint, desc_name_lookup, top_n):
+    def __init__(self, huggingface_endpoint, passage_lookup, top_n):
         self.huggingface_endpoint = huggingface_endpoint
-        self.desc_name_lookup = desc_name_lookup
+        self.passage_lookup = passage_lookup
         self.top_n = top_n
 
     def predict(self, citation_data_lookup, input_top_results):
@@ -121,13 +121,13 @@ class ListwiseModelTopNPredictor:
             citation_data = citation_data_lookup[pmid]
             query = "|" + QUERY_TEMPLATE.format(journal_title=citation_data["journal_title"], title=citation_data["title"], abstract=citation_data["abstract"])
          
-            passage = ""
+            combined_passages = ""
             for label_id in citation_top_label_ids:
-                desc_name = self.desc_name_lookup[label_id]
-                passage += "|"
-                passage += desc_name
+                passage = self.passage_lookup[label_id]
+                combined_passages += "|"
+                combined_passages += passage
 
-            input_data["inputs"].append([[query, passage]])
+            input_data["inputs"].append([[query, combined_passages]])
         
         return input_data, pmid_list, top_label_ids
 

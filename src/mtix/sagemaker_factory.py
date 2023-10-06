@@ -15,17 +15,7 @@ WAIT_DELAY = 1
 WAIT_MAX_ATTEMPTS = 900
 
 
-def create_async_pipeline(name_lookup_path, dui_lookup_path, subheading_name_lookup_path, cnn_endpoint_name, pointwise_endpoint_name, listwise_endpoint_name, subheading_endpoint_name, async_bucket_name, async_prefix, cnn_batch_size=128, pointwise_batch_size=128, listwise_batch_size=128, subheading_batch_size=128, vpc_endpoint = None):
-    return create_indexing_pipeline(name_lookup_path, dui_lookup_path, subheading_name_lookup_path, cnn_endpoint_name, pointwise_endpoint_name, listwise_endpoint_name, subheading_endpoint_name, async_bucket_name, async_prefix, cnn_batch_size, pointwise_batch_size, listwise_batch_size, subheading_batch_size, vpc_endpoint=vpc_endpoint)
-
-
-def create_real_time_pipeline(name_lookup_path, dui_lookup_path, subheading_name_lookup_path, cnn_endpoint_name, pointwise_endpoint_name, listwise_endpoint_name, subheading_endpoint_name, cnn_batch_size=128, pointwise_batch_size=128, listwise_batch_size=128, subheading_batch_size=128, vpc_endpoint = None):
-    async_bucket_name = None
-    async_prefix = None
-    return create_indexing_pipeline(name_lookup_path, dui_lookup_path, subheading_name_lookup_path, cnn_endpoint_name, pointwise_endpoint_name, listwise_endpoint_name, subheading_endpoint_name, async_bucket_name, async_prefix, cnn_batch_size, pointwise_batch_size, listwise_batch_size, subheading_batch_size, vpc_endpoint=vpc_endpoint)
-
-
-def create_mesh_heading_prediction_pipeline(name_lookup_path, dui_lookup_path, cnn_endpoint_name, pointwise_endpoint_name, listwise_endpoint_name, async_bucket_name, async_prefix, cnn_batch_size=128, pointwise_batch_size=128, listwise_batch_size=128, vpc_endpoint = None):
+def create_mesh_heading_prediction_pipeline(name_lookup_path, ui_lookup_path, type_lookup_path, pointwise_passage_lookup_path, listwise_passage_lookup_path, cnn_endpoint_name, pointwise_endpoint_name, listwise_endpoint_name, async_bucket_name, async_prefix, cnn_batch_size=128, pointwise_batch_size=128, listwise_batch_size=128, vpc_endpoint=None):
     is_async = (async_bucket_name is not None) and (async_prefix is not None)
     
     concurrent_batches = CONCURRENT_BATCHES
@@ -50,7 +40,7 @@ def create_mesh_heading_prediction_pipeline(name_lookup_path, dui_lookup_path, c
         cnn_endpoint = TensorflowRealTimeEndpoint(sagemaker_cnn_endpoint, batch_size=cnn_batch_size)
     cnn_model_top_100_predictor = CnnModelTop100Predictor(cnn_endpoint)
 
-    name_lookup = create_lookup(name_lookup_path)
+    pointwise_passage_lookup = create_lookup(pointwise_passage_lookup_path)
     sagemaker_pointwise_endpoint = HuggingFacePredictor(pointwise_endpoint_name, sagemaker_session=sagemaker_session)
     if is_async:
         sagemaker_async_pointwise_endpoint = AsyncPredictor(sagemaker_pointwise_endpoint)
@@ -58,8 +48,9 @@ def create_mesh_heading_prediction_pipeline(name_lookup_path, dui_lookup_path, c
         pointwise_endpoint = HuggingFaceRealTimeEndpoint(async_pointwise_endpoint, batch_size=concurrent_batches*pointwise_batch_size)
     else:
         pointwise_endpoint = HuggingFaceRealTimeEndpoint(sagemaker_pointwise_endpoint, batch_size=pointwise_batch_size)
-    pointwise_model_top100_predictor = PointwiseModelTopNPredictor(pointwise_endpoint, name_lookup, pointwise_top_n)
+    pointwise_model_top100_predictor = PointwiseModelTopNPredictor(pointwise_endpoint, pointwise_passage_lookup, pointwise_top_n)
 
+    listwise_passage_lookup = create_lookup(listwise_passage_lookup_path)
     sagemaker_listwise_endpoint = HuggingFacePredictor(listwise_endpoint_name, sagemaker_session=sagemaker_session)
     if is_async:
         sagemaker_async_listwise_endpoint = AsyncPredictor(sagemaker_listwise_endpoint)
@@ -67,23 +58,24 @@ def create_mesh_heading_prediction_pipeline(name_lookup_path, dui_lookup_path, c
         listwise_endpoint = HuggingFaceRealTimeEndpoint(async_listwise_endpoint, batch_size=concurrent_batches*listwise_batch_size)
     else:
         listwise_endpoint = HuggingFaceRealTimeEndpoint(sagemaker_listwise_endpoint, batch_size=listwise_batch_size)
-    listwise_model_topN_predictor = ListwiseModelTopNPredictor(listwise_endpoint, name_lookup, listwise_top_n)
+    listwise_model_topN_predictor = ListwiseModelTopNPredictor(listwise_endpoint, listwise_passage_lookup, listwise_top_n)
 
-    dui_lookup = create_lookup(dui_lookup_path)
-    results_formatter = MtiJsonResultsFormatter(name_lookup, dui_lookup, threshold)
+    name_lookup = create_lookup(name_lookup_path)
+    ui_lookup = create_lookup(ui_lookup_path)
+    results_formatter = MtiJsonResultsFormatter(name_lookup, ui_lookup, threshold)
 
     pipeline = MeshHeadingPredictionPipeline(input_data_parser, sanitizer, cnn_model_top_100_predictor, pointwise_model_top100_predictor, listwise_model_topN_predictor, results_formatter)
     return pipeline
 
 
-def create_indexing_pipeline(name_lookup_path, dui_lookup_path, subheading_name_lookup_path, cnn_endpoint_name, pointwise_endpoint_name, listwise_endpoint_name, subheading_endpoint_name, async_bucket_name, async_prefix, cnn_batch_size=128, pointwise_batch_size=128, listwise_batch_size=128, subheading_batch_size=128, vpc_endpoint = None):
-    mesh_heading_prediction_pipeline = create_mesh_heading_prediction_pipeline(name_lookup_path, dui_lookup_path, cnn_endpoint_name, pointwise_endpoint_name, listwise_endpoint_name, async_bucket_name, async_prefix, cnn_batch_size, pointwise_batch_size, listwise_batch_size, vpc_endpoint=vpc_endpoint)
+def create_indexing_pipeline(name_lookup_path, ui_lookup_path, type_lookup_path, pointwise_passage_lookup_path, listwise_passage_lookup_path, subheading_name_lookup_path, cnn_endpoint_name, pointwise_endpoint_name, listwise_endpoint_name, subheading_endpoint_name, async_bucket_name, async_prefix, cnn_batch_size=128, pointwise_batch_size=128, listwise_batch_size=128, subheading_batch_size=128, vpc_endpoint=None):
+    mesh_heading_prediction_pipeline = create_mesh_heading_prediction_pipeline(name_lookup_path, ui_lookup_path, type_lookup_path, pointwise_passage_lookup_path, listwise_passage_lookup_path, cnn_endpoint_name, pointwise_endpoint_name, listwise_endpoint_name, async_bucket_name, async_prefix, cnn_batch_size, pointwise_batch_size, listwise_batch_size, vpc_endpoint)
     subheading_predictor = create_subheading_predictor(subheading_name_lookup_path, subheading_endpoint_name, async_bucket_name, async_prefix, subheading_batch_size, vpc_endpoint=vpc_endpoint)
     indexing_pipeline = IndexingPipeline(mesh_heading_prediction_pipeline, subheading_predictor)
     return indexing_pipeline
 
 
-def create_subheading_predictor(subheading_name_lookup_path, subheading_endpoint_name, async_bucket_name, async_prefix, batch_size=128, vpc_endpoint = None):
+def create_subheading_predictor(subheading_name_lookup_path, subheading_endpoint_name, async_bucket_name, async_prefix, batch_size=128, vpc_endpoint=None):
     is_async = (async_bucket_name is not None) and (async_prefix is not None)
 
     concurrent_batches = CONCURRENT_BATCHES

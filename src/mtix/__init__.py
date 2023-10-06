@@ -1,1 +1,1 @@
-from .sagemaker_factory import create_async_pipeline, create_real_time_pipeline
+from .sagemaker_factory import create_indexing_pipeline

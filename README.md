@@ -33,53 +33,38 @@ The pipeline is constructed with the following input parameters:
 
 1. Path to the term name lookup file. This file maps internal term ids to term names.
 2. Path to term unique identifier file. This file maps internal term ids to NLM UIs.
-3. Path to subheading name lookup file. This file maps NLM QUIs to subheading names.
-4. Sagemaker endpoint name for CNN model.
-5. Sagemaker endpoint name for Pointwise model.
-6. Sagemaker endpoint name for Listwise model.
-7. Sagemaker endpoint name for Subheading model.
-8. The s3 bucket name (for async prediction temporary data).
-9. The s3 prefix (for async prediction temporary data).
-10. The cnn model batch size.
-11. The pointwise model batch size.
-12. The listwise model batch size.
-13. The subheading model batch size.
+3. Path to term types file. This file maps internal term ids to NLM term types (Descriptor, Check Tag, Publication Type, SCR).
+4. Path to the pointwise model passage lookup file. This file maps internal term ids to passages for the pointwise model.
+5. Path to the listwise model passage lookup file. This file maps internal term ids to passages for the listwise model.
+6. Path to subheading name lookup file. This file maps NLM QUIs to subheading names.
+7. Sagemaker endpoint name for CNN model.
+8. Sagemaker endpoint name for Pointwise model.
+9. Sagemaker endpoint name for Listwise model.
+10. Sagemaker endpoint name for Subheading model.
+11. The s3 bucket name (for async prediction temporary data).
+12. The s3 prefix (for async prediction temporary data).
+13. The cnn model batch size.
+14. The pointwise model batch size.
+15. The listwise model batch size.
+16. The subheading model batch size.
 
-Example usage for async endpoints:
+Example usage for async endpoints. Set s3 bucket name (11.) or s3 prefix (12.) to None to use real-time endpoints.
 
 ```
 from mtix import create_async_pipeline
 
-pipeline = create_async_pipeline("path/to/mesh_heading_names_2023.tsv", 
-                                "path/to/mesh_headings_2023.tsv", 
-                                "path/to/subheading_names_2023_mesh.tsv",
-                                "raear-cnn-endpoint-2023-v1-async", 
-                                "raear-pointwise-endpoint-2023-v1-async", 
-                                "raear-listwise-endpoint-2023-v1-async",
-                                "raear-all-subheading-cnn-endpoint-2023-v1-async",
-                                "ncbi-aws-pmdm-ingest",
-                                "async_inference",
-                                cnn_batch_size=128,
-                                pointwise_batch_size=128,
-                                listwise_batch_size=128,
-                                subheading_batch_size=128)
-
-predictions = pipeline.predict(input_data)
-```
-
-Example usage for real-time endpoints:
-
-
-```
-from mtix import create_real_time_pipeline
-
-pipeline = create_real_time_pipeline("path/to/mesh_heading_names_2023.tsv", 
-                                    "path/to/mesh_headings_2023.tsv", 
+pipeline = create_indexing_pipeline("path/to/mesh_heading_names_2023.tsv", 
+                                    "path/to/mesh_headings_uis_2023.tsv",
+                                    "path/to/mesh_headings_types_2023.tsv", 
+                                    "path/to/mesh_heading_names_2023_w_types.tsv",
+                                    "path/to/mesh_heading_names_2023_w_types_max_len_32.tsv",
                                     "path/to/subheading_names_2023_mesh.tsv",
-                                    "raear-cnn-endpoint-2023-v1", 
-                                    "raear-pointwise-endpoint-2023-v1", 
-                                    "raear-listwise-endpoint-2023-v1",
-                                    "raear-all-subheading-cnn-endpoint-2023-v1",
+                                    "raear-cnn-endpoint-2023-v2-async", 
+                                    "raear-pointwise-endpoint-2023-v2-async", 
+                                    "raear-listwise-endpoint-2023-v2-async",
+                                    "raear-all-subheading-cnn-endpoint-2023-v1-async",
+                                    "ncbi-aws-pmdm-ingest",
+                                    "async_inference",
                                     cnn_batch_size=128,
                                     pointwise_batch_size=128,
                                     listwise_batch_size=128,
