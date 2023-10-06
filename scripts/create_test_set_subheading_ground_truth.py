@@ -3,7 +3,7 @@ import os.path
 import pandas as pd
 
 
-WORKING_DIR="/net/intdev/pubmed_mti/ncbi/working_dir/mtix/scripts/create_test_set_subheading_ground_truth"
+WORKING_DIR="/net/intdev/pubmed_mti/ncbi/working_dir/mtix/scripts_v3/create_test_set_subheading_ground_truth"
 
 
 def create_lookup(path):
@@ -12,39 +12,43 @@ def create_lookup(path):
     return lookup
 
 
+def get_test_set_indexing(test_set_path):
+    test_set_indexing = {}
+    for line in open(test_set_path):
+        citation_data = json.loads(line.strip())
+        pmid = int(citation_data["pmid"])
+        test_set_indexing[pmid] = {}
+        for dui, qui_list in citation_data["mesh_headings"]:
+            test_set_indexing[pmid][dui] = qui_list
+    return test_set_indexing
+
+
 def main():
-    desc_names_path =       os.path.join(WORKING_DIR, "main_heading_names.tsv")
-    desc_uis_path =         os.path.join(WORKING_DIR, "main_headings.tsv")
-    ground_truth_path =     os.path.join(WORKING_DIR, "test_set_2017-2023_Subheading_Ground_Truth.json")
-    subheading_names_path = os.path.join(WORKING_DIR, "subheading_names.tsv")
-    test_set_data_path =    os.path.join(WORKING_DIR, "test_set_data.json")
-    test_set_path =         os.path.join(WORKING_DIR, "test_set.jsonl")
+    mesh_heading_ground_truth_path = os.path.join(WORKING_DIR, "val_set_2017-2023_MeSH_Heading_Ground_Truth.json")
+    subheading_ground_truth_path =   os.path.join(WORKING_DIR, "val_set_2017-2023_Subheading_Ground_Truth.json")
+    subheading_names_path =          os.path.join(WORKING_DIR, "subheading_names_2023_mesh.tsv")
+    test_set_path =                  os.path.join(WORKING_DIR, "val_set.jsonl")
 
-    desc_names =       create_lookup(desc_names_path)
-    desc_uis =         create_lookup(desc_uis_path)
     subheading_names = create_lookup(subheading_names_path)
-    test_set_data = json.load(open(test_set_data_path))
-    test_set = [json.loads(line) for line in open(test_set_path)]
+    mesh_heading_ground_truth_mod = json.load(open(mesh_heading_ground_truth_path))
+    
+    test_set_indexing = get_test_set_indexing(test_set_path)
 
-    data_lookup = { citation_data["uid"]: citation_data["data"] for citation_data in test_set_data}
-    desc_id_lookup = { dui: _id for _id, dui in desc_uis.items()}
+    for example in mesh_heading_ground_truth_mod:
+        pmid = int(example["PMID"])
+        for example_indexing in example["Indexing"]:
+            if example_indexing["Type"].lower() ==  "descriptor" or example_indexing["Type"].lower() ==  "check tag":
+                example_indexing["Subheadings"] = []
+                dui = example_indexing["ID"]
+                if pmid in test_set_indexing and dui in test_set_indexing[pmid]:
+                    for qui in test_set_indexing[pmid][dui]:
+                        example_indexing["Subheadings"].append({
+                            "ID": qui,
+                            "IM": "NO",
+                            "Name": subheading_names[qui],
+                            "Reason": f"score: {1.:.3f}"})
 
-    mti_json = []
-    for example in test_set:
-        pmid = example["pmid"]
-        citation_predictions = { "PMID": pmid, "text-gz-64": data_lookup[pmid], "Indexing": [] }
-        mti_json.append(citation_predictions)
-        for dui, qui_list in example["mesh_headings"]:
-            descriptor_prediction = { "Term": desc_names[desc_id_lookup[dui]], "Type": "Descriptor", "ID": dui, "IM": "NO", "Reason": f"score: {1.:.3f}", "Subheadings": []}
-            citation_predictions["Indexing"].append(descriptor_prediction)
-            for qui in qui_list:
-                descriptor_prediction["Subheadings"].append({
-                        "ID": qui,
-                        "IM": "NO",
-                        "Name": subheading_names[qui],
-                        "Reason": f"score: {1.:.3f}"})
-
-    json.dump(mti_json, open(ground_truth_path, "wt"), ensure_ascii=False, indent=4)
+    json.dump(mesh_heading_ground_truth_mod, open(subheading_ground_truth_path, "wt"), ensure_ascii=False, indent=4)
 
 
 if __name__ == "__main__":
