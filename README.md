@@ -34,8 +34,8 @@ The pipeline is constructed with the following input parameters:
 1. Path to the term name lookup file. This file maps internal term ids to term names.
 2. Path to term unique identifier file. This file maps internal term ids to NLM UIs.
 3. Path to term types file. This file maps internal term ids to NLM term types (Descriptor, Check Tag, Publication Type, SCR).
-4. Path to the pointwise model passage lookup file. This file maps internal term ids to passages for the pointwise model.
-5. Path to the listwise model passage lookup file. This file maps internal term ids to passages for the listwise model.
+4. Path to pointwise model passage lookup file. This file maps internal term ids to passages for the pointwise model.
+5. Path to listwise model passage lookup file. This file maps internal term ids to passages for the listwise model.
 6. Path to subheading name lookup file. This file maps NLM QUIs to subheading names.
 7. Sagemaker endpoint name for CNN model.
 8. Sagemaker endpoint name for Pointwise model.
@@ -51,7 +51,7 @@ The pipeline is constructed with the following input parameters:
 Example usage for async endpoints. Set s3 bucket name (11.) or s3 prefix (12.) to None to use real-time endpoints.
 
 ```
-from mtix import create_async_pipeline
+from mtix import create_indexing_pipeline
 
 pipeline = create_indexing_pipeline("path/to/mesh_heading_names_2023.tsv", 
                                     "path/to/mesh_headings_uis_2023.tsv",
