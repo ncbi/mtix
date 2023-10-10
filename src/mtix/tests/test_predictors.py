@@ -43,7 +43,7 @@ class TestPointwiseModelTopNPredictor(TestCase):
         huggingface_endpoint.predict = MagicMock(return_value=HUGGINGFACE_PREDICTOR_POINTWISE_RESULTS)
         
         top_n = 5
-        pointwise_predictor = PointwiseModelTopNPredictor(huggingface_endpoint, DESC_NAME_LOOKUP, top_n)
+        pointwise_predictor = PointwiseModelTopNPredictor(huggingface_endpoint, NAME_W_TYPES_LOOKUP, top_n)
         top_results = pointwise_predictor.predict(EXPECTED_CITATION_DATA_LOOKUP, CNN_RESULTS_SHUFFLED)
 
         top_results = round_top_results(top_results, 6)
@@ -64,7 +64,7 @@ class TestListwiseModelTopNPredictor(TestCase):
         huggingface_endpoint.predict = MagicMock(return_value=HUGGINGFACE_ENDPOINT_LISTWISE_RESULTS)
         
         top_n = 50
-        listwise_predictor = ListwiseModelTopNPredictor(huggingface_endpoint, DESC_NAME_LOOKUP, top_n)
+        listwise_predictor = ListwiseModelTopNPredictor(huggingface_endpoint, NAME_W_TYPES_LOOKUP, top_n)
         pointwise_avg_results_shuffled = shuffle_top_results(POINTWISE_AVG_RESULTS)
         top_results = listwise_predictor.predict(EXPECTED_CITATION_DATA_LOOKUP, pointwise_avg_results_shuffled)
 

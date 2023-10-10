@@ -24,7 +24,7 @@ class TestDescriptorPredictionPipeline(TestCase):
         self.pointwise_predictor.predict = MagicMock(return_value=POINTWISE_RESULTS)
         self.listwise_predictor = ListwiseModelTopNPredictor(None, {}, 50)
         self.listwise_predictor.predict = MagicMock(return_value=LISTWISE_RESULTS)
-        self.results_formatter = MtiJsonResultsFormatter(DESC_NAME_LOOKUP, DUI_LOOKUP, THRESHOLD)
+        self.results_formatter = MtiJsonResultsFormatter(NAME_LOOKUP, TYPE_LOOKUP, UI_LOOKUP, THRESHOLD)
         self.results_formatter.format = Mock(wraps=self.results_formatter.format)
         self.pipeline = MeshHeadingPredictionPipeline(input_data_parser, self.sanitizer, self.cnn_predictor, self.pointwise_predictor, self.listwise_predictor, self.results_formatter)
 
@@ -63,7 +63,7 @@ class TestIndexingPipeline(TestCase):
 class TestMtiJsonResultsFormatter(TestCase):
 
     def setUp(self):
-        self.formatter = MtiJsonResultsFormatter(DESC_NAME_LOOKUP, DUI_LOOKUP, THRESHOLD)
+        self.formatter = MtiJsonResultsFormatter(NAME_LOOKUP, TYPE_LOOKUP, UI_LOOKUP, THRESHOLD)
 
     def test_format(self):
         input_data_lookup = { item["uid"]: item["data"] for item in PUBMED_XML_INPUT_DATA}

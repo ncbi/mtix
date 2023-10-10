@@ -39,8 +39,9 @@ class IndexingPipeline:
 
 
 class MtiJsonResultsFormatter:
-    def __init__(self, name_lookup, ui_lookup, threshold):
+    def __init__(self, name_lookup, type_lookup, ui_lookup, threshold):
         self.name_lookup = name_lookup
+        self.type_lookup = type_lookup
         self.ui_lookup = ui_lookup
         self.threshold = threshold
 
@@ -54,10 +55,11 @@ class MtiJsonResultsFormatter:
                 if score >= self.threshold:
                     label_id = int(p_id)
                     name = self.name_lookup[label_id]
+                    _type = self.type_lookup[label_id]
                     ui = self.ui_lookup[label_id]
                     citation_predictions["Indexing"].append({
                         "Term": name, 
-                        "Type": "Descriptor", 
+                        "Type": _type, 
                         "ID": ui, 
                         "IM": "NO", 
                         "Reason": f"score: {score:.3f}"})

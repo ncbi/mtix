@@ -61,8 +61,9 @@ def create_mesh_heading_prediction_pipeline(name_lookup_path, ui_lookup_path, ty
     listwise_model_topN_predictor = ListwiseModelTopNPredictor(listwise_endpoint, listwise_passage_lookup, listwise_top_n)
 
     name_lookup = create_lookup(name_lookup_path)
+    type_lookup = create_lookup(type_lookup_path)
     ui_lookup = create_lookup(ui_lookup_path)
-    results_formatter = MtiJsonResultsFormatter(name_lookup, ui_lookup, threshold)
+    results_formatter = MtiJsonResultsFormatter(name_lookup, type_lookup, ui_lookup, threshold)
 
     pipeline = MeshHeadingPredictionPipeline(input_data_parser, sanitizer, cnn_model_top_100_predictor, pointwise_model_top100_predictor, listwise_model_topN_predictor, results_formatter)
     return pipeline

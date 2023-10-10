@@ -437,7 +437,7 @@ CNN_RESULTS_SHUFFLED={
 }
 
 
-DESC_NAME_LOOKUP = {
+NAME_LOOKUP = {
     9291: "Humans",
     8857: "Heart Rate",
     15149: "Soccer",
@@ -537,7 +537,128 @@ DESC_NAME_LOOKUP = {
 }
 
 
-DUI_LOOKUP = {
+NAME_W_TYPES_LOOKUP = {
+    9291: "CT: Humans",
+    8857: "MH: Heart Rate",
+    15149: "MH: Soccer",
+    10719: "CT: Male",
+    7160: "MH: Electrocardiography",
+    7653: "MH: Exercise Test",
+    14670: "MH: Running",
+    27783: "CT: Young Adult",
+    17432: "MH: Anaerobic Threshold",
+    3075: "CT: Adolescent",
+    12453: "MH: Oxygen Consumption",
+    14390: "MH: Pulmonary Ventilation",
+    14386: "MH: Respiration",
+    27896: "MH: Athletes",
+    27868: "MH: Respiratory Rate",
+    17338: "MH: Reproducibility of Results",
+    13943: "MH: Pulmonary Gas Exchange",
+    3109: "CT: Adult",
+    4933: "MH: Carbon Dioxide",
+    13133: "MH: Physical Endurance",
+    1058: "MH: Cardiorespiratory Fitness",
+    29719: "MH: Healthy Volunteers",
+    27389: "MH: Athletic Performance",
+    7794: "MH: Fatigue",
+    7828: "CT: Female",
+    7655: "MH: Physical Exertion",
+    20752: "MH: Lactic Acid",
+    6074: "MH: Cross-Sectional Studies",
+    4651: "MH: Breath Tests",
+    12452: "MH: Oxygen",
+    18833: "MH: Exercise Tolerance",
+    559: "MH: Heart Rate Determination",
+    3465: "MH: Analysis of Variance",
+    14396: "MH: Respiratory Function Tests",
+    13740: "MH: Prospective Studies",
+    10595: "MH: Lung",
+    10864: "MH: Maximal Voluntary Ventilation",
+    20262: "MH: Muscle Fatigue",
+    15050: "MH: Signal Processing, Computer-Assisted",
+    8839: "MH: Heart",
+    17678: "MH: Respiratory Mechanics",
+    16178: "MH: Tidal Volume",
+    12444: "MH: Oximetry",
+    13135: "MH: Physical Fitness",
+    15372: "MH: Spirometry",
+    17544: "MH: Exercise",
+    11385: "MH: Monitoring, Physiologic",
+    7326: "MH: Energy Metabolism",
+    14410: "MH: Respiratory Physiological Phenomena",
+    14288: "MH: Reference Values",
+    4978: "MH: Carcinoma, Renal Cell",
+    10133: "MH: Kidney Neoplasms",
+    28767: "MH: Molecular Targeted Therapy",
+    20854: "MH: Disease Management",
+    3718: "MH: Antineoplastic Agents",
+    5649: "MH: Clinical Trials as Topic",
+    20100: "MH: Disease-Free Survival",
+    9643: "MH: Immunotherapy",
+    3575: "CT: Animals",
+    11742: "MH: Neoplasm Staging",
+    16588: "MH: Biomarkers, Tumor",
+    13680: "MH: Prognosis",
+    11767: "MH: Nephrectomy",
+    10122: "MH: Kidney",
+    5789: "MH: Combined Modality Therapy",
+    18671: "MH: Treatment Outcome",
+    11539: "MH: Mutation",
+    17505: "MH: Signal Transduction",
+    11737: "MH: Neoplasm Metastasis",
+    19990: "MH: Disease Progression",
+    17911: "MH: Gene Expression Regulation, Neoplastic",
+    1634: "MH: Drug Development",
+    25251: "MH: Protein Kinase Inhibitors",
+    3719: "MH: Antineoplastic Combined Chemotherapy Protocols",
+    28791: "MH: Tumor Microenvironment",
+    21306: "MH: Genetic Predisposition to Disease",
+    27776: "MH: Drug Discovery",
+    29131: "MH: Neoplasm Grading",
+    28010: "MH: Immunomodulation",
+    6810: "MH: Disease Susceptibility",
+    13006: "MH: Phenylurea Compounds",
+    17952: "MH: Survival Analysis",
+    2344: "MH: Immune Checkpoint Inhibitors",
+    12976: "MH: Phenotype",
+    14561: "MH: Risk Factors",
+    1347: "MH: Antineoplastic Agents, Immunological",
+    10908: "MH: Medical Oncology",
+    17934: "MH: Survival Rate",
+    21749: "MH: Angiogenesis Inhibitors",
+    3660: "MH: Antibodies, Monoclonal",
+    9631: "MH: Immunologic Factors",
+    22300: "MH: Genomics",
+    19115: "MH: Practice Guidelines as Topic",
+    1930: "MH: Progression-Free Survival",
+    11739: "MH: Neoplasm Recurrence, Local",
+    17520: "MH: Biomarkers"
+}
+
+
+TYPE_LOOKUP = {
+    9291: "Check Tag",
+    8857: "Descriptor",
+    7653: "Descriptor",
+    7160: "Descriptor",
+    15149: "Descriptor",
+    10719: "Check Tag",
+    14670: "Descriptor",
+    27783: "Check Tag",
+    12453: "Descriptor",
+    3075: "Check Tag",
+    17432: "Descriptor",
+    14390: "Descriptor",
+    14386: "Descriptor",
+    4978: "Descriptor",
+    10133: "Descriptor",
+    28767: "Descriptor",
+    5649: "Descriptor",
+}
+
+
+UI_LOOKUP = {
     9291: "D006801",
     8857: "D006339",
     7653: "D005080",
@@ -587,7 +708,7 @@ EXPECTED_DESCRIPTOR_PREDICTIONS = [
         "Indexing": [
             {
                 "Term": "Humans",
-                "Type": "Descriptor",
+                "Type": "Check Tag",
                 "ID": "D006801",
                 "IM": "NO",
                 "Reason": "score: 1.000"
@@ -622,7 +743,7 @@ EXPECTED_DESCRIPTOR_PREDICTIONS = [
             },
             {
                 "Term": "Male",
-                "Type": "Descriptor",
+                "Type": "Check Tag",
                 "ID": "D008297",
                 "IM": "NO",
                 "Reason": "score: 0.879"
@@ -636,7 +757,7 @@ EXPECTED_DESCRIPTOR_PREDICTIONS = [
             },
             {
                 "Term": "Young Adult",
-                "Type": "Descriptor",
+                "Type": "Check Tag",
                 "ID": "D055815",
                 "IM": "NO",
                 "Reason": "score: 0.827"
@@ -650,7 +771,7 @@ EXPECTED_DESCRIPTOR_PREDICTIONS = [
             },
             {
                 "Term": "Adolescent",
-                "Type": "Descriptor",
+                "Type": "Check Tag",
                 "ID": "D000293",
                 "IM": "NO",
                 "Reason": "score: 0.668"
@@ -684,7 +805,7 @@ EXPECTED_DESCRIPTOR_PREDICTIONS = [
         "Indexing": [
             {
                 "Term": "Humans",
-                "Type": "Descriptor",
+                "Type": "Check Tag",
                 "ID": "D006801",
                 "IM": "NO",
                 "Reason": "score: 0.999"
@@ -722,7 +843,7 @@ EXPECTED_DESCRIPTOR_PREDICTIONS_WITH_SUBHEADINGS = [
         "Indexing": [
             {
                 "Term": "Humans",
-                "Type": "Descriptor",
+                "Type": "Check Tag",
                 "ID": "D006801",
                 "IM": "NO",
                 "Reason": "score: 1.000",
@@ -783,7 +904,7 @@ EXPECTED_DESCRIPTOR_PREDICTIONS_WITH_SUBHEADINGS = [
             },
             {
                 "Term": "Male",
-                "Type": "Descriptor",
+                "Type": "Check Tag",
                 "ID": "D008297",
                 "IM": "NO",
                 "Reason": "score: 0.879",
@@ -806,7 +927,7 @@ EXPECTED_DESCRIPTOR_PREDICTIONS_WITH_SUBHEADINGS = [
             },
             {
                 "Term": "Young Adult",
-                "Type": "Descriptor",
+                "Type": "Check Tag",
                 "ID": "D055815",
                 "IM": "NO",
                 "Reason": "score: 0.827",
@@ -829,7 +950,7 @@ EXPECTED_DESCRIPTOR_PREDICTIONS_WITH_SUBHEADINGS = [
             },
             {
                 "Term": "Adolescent",
-                "Type": "Descriptor",
+                "Type": "Check Tag",
                 "ID": "D000293",
                 "IM": "NO",
                 "Reason": "score: 0.668",
@@ -881,7 +1002,7 @@ EXPECTED_DESCRIPTOR_PREDICTIONS_WITH_SUBHEADINGS = [
         "Indexing": [
             {
                 "Term": "Humans",
-                "Type": "Descriptor",
+                "Type": "Check Tag",
                 "ID": "D006801",
                 "IM": "NO",
                 "Reason": "score: 0.999",
@@ -964,11 +1085,11 @@ HUGGINGFACE_ENDPOINT_EXPECTED_LISTWISE_INPUT_DATA = {
         "inputs": [
                     [[
                         "|Journal: International journal of sports medicine | Title: Second Ventilatory Threshold Assessed by Heart Rate Variability in a Multiple Shuttle Run Test. | Abstract: Many studies have focused on heart rate variability in association with ventilatory thresholds. The purpose of the current study was to consider the ECG-derived respiration and the high frequency product of heart rate variability as applicable methods to assess the second ventilatory threshold (VT2). Fifteen healthy young soccer players participated in the study. Respiratory gases and ECGs were collected during an incremental laboratory test and in a multistage shuttle run test until exhaustion. VΤ2 was individually calculated using the deflection point of ventilatory equivalents. In addition, VT2 was assessed both by the deflection point of ECG-derived respiration and high frequency product. Results showed no statistically significant differences between VT2, and the threshold as determined with high frequency product and ECG-derived respiration (F(2,28)=0.83, p=0.45, η2=0.05). A significant intraclass correlation was observed for ECG-derived respiration (r=0.94) and high frequency product (r=0.95) with VT2. Similarly, Bland Altman analysis showed a considerable agreement between VT2 vs. ECG-derived respiration (mean difference of -0.06\u2009km·h-1, 95% CL: ±0.40) and VT2 vs. high frequency product (mean difference of 0.02\u2009km·h-1, 95% CL: ±0.38). This study suggests that, high frequency product and ECG-derived respiration are indeed reliable heart rate variability indices determining VT2 in a field shuttle run test.",
-                        "|Humans|Heart Rate|Soccer|Male|Electrocardiography|Exercise Test|Running|Young Adult|Anaerobic Threshold|Adolescent|Oxygen Consumption|Pulmonary Ventilation|Respiration|Athletes|Respiratory Rate|Reproducibility of Results|Pulmonary Gas Exchange|Adult|Carbon Dioxide|Physical Endurance|Cardiorespiratory Fitness|Healthy Volunteers|Athletic Performance|Fatigue|Female|Physical Exertion|Lactic Acid|Cross-Sectional Studies|Breath Tests|Oxygen|Exercise Tolerance|Heart Rate Determination|Analysis of Variance|Respiratory Function Tests|Prospective Studies|Lung|Maximal Voluntary Ventilation|Muscle Fatigue|Signal Processing, Computer-Assisted|Heart|Respiratory Mechanics|Tidal Volume|Oximetry|Physical Fitness|Spirometry|Exercise|Monitoring, Physiologic|Energy Metabolism|Respiratory Physiological Phenomena|Reference Values"
+                        "|CT: Humans|MH: Heart Rate|MH: Soccer|CT: Male|MH: Electrocardiography|MH: Exercise Test|MH: Running|CT: Young Adult|MH: Anaerobic Threshold|CT: Adolescent|MH: Oxygen Consumption|MH: Pulmonary Ventilation|MH: Respiration|MH: Athletes|MH: Respiratory Rate|MH: Reproducibility of Results|MH: Pulmonary Gas Exchange|CT: Adult|MH: Carbon Dioxide|MH: Physical Endurance|MH: Cardiorespiratory Fitness|MH: Healthy Volunteers|MH: Athletic Performance|MH: Fatigue|CT: Female|MH: Physical Exertion|MH: Lactic Acid|MH: Cross-Sectional Studies|MH: Breath Tests|MH: Oxygen|MH: Exercise Tolerance|MH: Heart Rate Determination|MH: Analysis of Variance|MH: Respiratory Function Tests|MH: Prospective Studies|MH: Lung|MH: Maximal Voluntary Ventilation|MH: Muscle Fatigue|MH: Signal Processing, Computer-Assisted|MH: Heart|MH: Respiratory Mechanics|MH: Tidal Volume|MH: Oximetry|MH: Physical Fitness|MH: Spirometry|MH: Exercise|MH: Monitoring, Physiologic|MH: Energy Metabolism|MH: Respiratory Physiological Phenomena|MH: Reference Values"
                     ]],
                     [[
                         "|Journal: Journal of investigative medicine : the official publication of the American Federation for Clinical Research | Title: Update on the biology and management of renal cell carcinoma. | Abstract: Renal cell cancer (RCC) (epithelial carcinoma of the kidney) represents 2%-4% of newly diagnosed adult tumors. Over the past 2 decades, RCC has been better characterized clinically and molecularly. It is a heterogeneous disease, with multiple subtypes, each with characteristic histology, genetics, molecular profiles, and biologic behavior. Tremendous heterogeneity has been identified with many distinct subtypes characterized. There are clinical questions to be addressed at every stage of this disease, and new targets being identified for therapeutic development. The unique characteristics of the clinical presentations of RCC have led to both questions and opportunities for improvement in management. Advances in targeted drug development and understanding of immunologic control of RCC are leading to a number of new clinical trials and regimens for advanced disease, with the goal of achieving long-term disease-free survival, as has been achieved in a proportion of such patients historically. RCC management is a promising area of ongoing clinical investigation.", 
-                        "|Humans|Carcinoma, Renal Cell|Kidney Neoplasms|Molecular Targeted Therapy|Disease Management|Antineoplastic Agents|Clinical Trials as Topic|Disease-Free Survival|Immunotherapy|Animals|Neoplasm Staging|Biomarkers, Tumor|Prognosis|Adult|Nephrectomy|Kidney|Combined Modality Therapy|Treatment Outcome|Mutation|Signal Transduction|Neoplasm Metastasis|Disease Progression|Female|Gene Expression Regulation, Neoplastic|Male|Drug Development|Protein Kinase Inhibitors|Antineoplastic Combined Chemotherapy Protocols|Tumor Microenvironment|Genetic Predisposition to Disease|Drug Discovery|Neoplasm Grading|Immunomodulation|Disease Susceptibility|Phenylurea Compounds|Survival Analysis|Immune Checkpoint Inhibitors|Phenotype|Risk Factors|Antineoplastic Agents, Immunological|Medical Oncology|Survival Rate|Angiogenesis Inhibitors|Antibodies, Monoclonal|Immunologic Factors|Genomics|Practice Guidelines as Topic|Progression-Free Survival|Neoplasm Recurrence, Local|Biomarkers"
+                        "|CT: Humans|MH: Carcinoma, Renal Cell|MH: Kidney Neoplasms|MH: Molecular Targeted Therapy|MH: Disease Management|MH: Antineoplastic Agents|MH: Clinical Trials as Topic|MH: Disease-Free Survival|MH: Immunotherapy|CT: Animals|MH: Neoplasm Staging|MH: Biomarkers, Tumor|MH: Prognosis|CT: Adult|MH: Nephrectomy|MH: Kidney|MH: Combined Modality Therapy|MH: Treatment Outcome|MH: Mutation|MH: Signal Transduction|MH: Neoplasm Metastasis|MH: Disease Progression|CT: Female|MH: Gene Expression Regulation, Neoplastic|CT: Male|MH: Drug Development|MH: Protein Kinase Inhibitors|MH: Antineoplastic Combined Chemotherapy Protocols|MH: Tumor Microenvironment|MH: Genetic Predisposition to Disease|MH: Drug Discovery|MH: Neoplasm Grading|MH: Immunomodulation|MH: Disease Susceptibility|MH: Phenylurea Compounds|MH: Survival Analysis|MH: Immune Checkpoint Inhibitors|MH: Phenotype|MH: Risk Factors|MH: Antineoplastic Agents, Immunological|MH: Medical Oncology|MH: Survival Rate|MH: Angiogenesis Inhibitors|MH: Antibodies, Monoclonal|MH: Immunologic Factors|MH: Genomics|MH: Practice Guidelines as Topic|MH: Progression-Free Survival|MH: Neoplasm Recurrence, Local|MH: Biomarkers"
                     ]],
                 ],
         "parameters": {},
@@ -981,16 +1102,16 @@ _QUERY_2 = "Journal: Journal of investigative medicine : the official publicatio
 
 HUGGINGFACE_ENDPOINT_EXPECTED_POINTWISE_INPUT_DATA = {
     "inputs": [
-            [[ _QUERY_1, "Humans"]],
-            [[ _QUERY_1, "Heart Rate"]],
-            [[ _QUERY_1, "Soccer"]],
-            [[ _QUERY_1, "Exercise Test"]],
-            [[ _QUERY_1, "Male"]],
-            [[ _QUERY_2, "Humans"]],
-            [[ _QUERY_2, "Carcinoma, Renal Cell"]],
-            [[ _QUERY_2, "Kidney Neoplasms"]],
-            [[ _QUERY_2, "Molecular Targeted Therapy"]],
-            [[ _QUERY_2, "Clinical Trials as Topic"]],
+            [[ _QUERY_1, "CT: Humans"]],
+            [[ _QUERY_1, "MH: Heart Rate"]],
+            [[ _QUERY_1, "MH: Soccer"]],
+            [[ _QUERY_1, "MH: Exercise Test"]],
+            [[ _QUERY_1, "CT: Male"]],
+            [[ _QUERY_2, "CT: Humans"]],
+            [[ _QUERY_2, "MH: Carcinoma, Renal Cell"]],
+            [[ _QUERY_2, "MH: Kidney Neoplasms"]],
+            [[ _QUERY_2, "MH: Molecular Targeted Therapy"]],
+            [[ _QUERY_2, "MH: Clinical Trials as Topic"]],
     ],
     "parameters": {"max_length": 512,
                    "padding": "max_length",
