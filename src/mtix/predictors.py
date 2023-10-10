@@ -165,42 +165,44 @@ class SubheadingPredictor:
         self.subheading_endpoint = subheading_endpoint
         self.subheading_name_lookup = subheading_name_lookup
 
-    def predict(self, descriptor_predictions):
-        data = self._create_input_data(descriptor_predictions)
+    def predict(self, mesh_heading_predictions):
+        data = self._create_input_data(mesh_heading_predictions)
         response = self.subheading_endpoint.predict(data)
         result_lookup = self._create_result_lookup(response)
-        predictions = self._attach_subheadings(result_lookup, descriptor_predictions)
+        predictions = self._attach_subheadings(result_lookup, mesh_heading_predictions)
         return predictions
 
-    def _attach_subheadings(self, result_lookup, descriptor_predictions):
-        descriptor_predictions = copy.deepcopy(descriptor_predictions)
-        for citation_prediction in descriptor_predictions:
+    def _attach_subheadings(self, result_lookup, mesh_heading_predictions):
+        mesh_heading_predictions = copy.deepcopy(mesh_heading_predictions)
+        for citation_prediction in mesh_heading_predictions:
             pmid = citation_prediction["PMID"]
-            for descriptor_prediction in citation_prediction["Indexing"]:
-                dui = descriptor_prediction["ID"]
-                subheading_list = []
-                descriptor_prediction["Subheadings"] = subheading_list
-                for qui, score in sorted(result_lookup[pmid][dui].items(), key=lambda x: x[1], reverse=True):
-                    subheading_list.append({
-                        "ID": qui,
-                        "IM": "NO",
-                        "Name": self.subheading_name_lookup[qui],
-                        "Reason": f"score: {score:.3f}"
-                        })
-        return descriptor_predictions
+            for mesh_heading_prediction in citation_prediction["Indexing"]:
+                if self._subheadings_allowed(mesh_heading_prediction):
+                    dui = mesh_heading_prediction["ID"]
+                    subheading_list = []
+                    mesh_heading_prediction["Subheadings"] = subheading_list
+                    for qui, score in sorted(result_lookup[pmid][dui].items(), key=lambda x: x[1], reverse=True):
+                        subheading_list.append({
+                            "ID": qui,
+                            "IM": "NO",
+                            "Name": self.subheading_name_lookup[qui],
+                            "Reason": f"score: {score:.3f}"
+                            })
+        return mesh_heading_predictions
 
-    def _create_input_data(self, descriptor_predictions):
+    def _create_input_data(self, mesh_heading_predictions):
         instances = []
-        for citation_prediction in descriptor_predictions:
+        for citation_prediction in mesh_heading_predictions:
             encoded_citation_xml = citation_prediction["text-gz-64"]
             citation_data = self.parser.parse_data(encoded_citation_xml)
             self.santizer.sanitize(citation_data)
             citation_data = { key: value for key, value in citation_data.items() if key not in ["journal_title"] }
             citation_data["pmid"] = str(citation_data["pmid"])
-            for descriptor_prediction in citation_prediction["Indexing"]:
-                citation_data_copy = copy.deepcopy(citation_data)
-                citation_data_copy["main_heading_ui"] = descriptor_prediction["ID"]
-                instances.append(citation_data_copy)
+            for mesh_heading_prediction in citation_prediction["Indexing"]:
+                if self._subheadings_allowed(mesh_heading_prediction):
+                    citation_data_copy = copy.deepcopy(citation_data)
+                    citation_data_copy["main_heading_ui"] = mesh_heading_prediction["ID"]
+                    instances.append(citation_data_copy)
         instances = replace_brackets(instances)
         data = { "instances": instances }
         return data
@@ -216,3 +218,11 @@ class SubheadingPredictor:
             if len(qui.strip()) > 0:
                 result_lookup[pmid][dui][qui] = float(score)
         return result_lookup
+    
+    def _subheadings_allowed(self, mesh_heading_prediction):
+        _type = mesh_heading_prediction["Type"].strip().lower()
+        if (_type == "descriptor" or _type == "check tag"):
+            allowed = True
+        else:
+            allowed = False
+        return allowed
