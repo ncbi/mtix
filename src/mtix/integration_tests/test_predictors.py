@@ -10,10 +10,10 @@ import xz
 
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(THIS_DIR, "data")
-SUBHEADING_NAME_LOOKUP_PATH =                   os.path.join(DATA_DIR, "subheading_names_2023_mesh.tsv")
-TEST_SET_DESCRIPTOR_GROUND_TRUTH_PATH =         os.path.join(DATA_DIR, "test_set_2017-2023_Descriptor_Ground_Truth.json.gz")
-TEST_SET_EXPECTED_SUBHEADING_PREDICTIONS_PATH = os.path.join(DATA_DIR, "test_set_2017-2023_Subheading_Predictions.json.xz")
-TEST_SET_SUBHEADING_GROUND_TRUTH_PATH =         os.path.join(DATA_DIR, "test_set_2017-2023_Subheading_Ground_Truth.json.xz")
+SUBHEADING_NAME_LOOKUP_PATH =                    os.path.join(DATA_DIR, "subheading_names_2023_mesh.tsv")
+TEST_SET_MESH_HEADING_GROUND_TRUTH_PATH =        os.path.join(DATA_DIR, "val_set_2017-2023_MeSH_Heading_Ground_Truth.json.gz")
+TEST_SET_EXPECTED_SUBHEADING_PREDICTIONS_PATH =  os.path.join(DATA_DIR, "val_set_2017-2023_Subheading_Predictions.json.xz")
+TEST_SET_SUBHEADING_GROUND_TRUTH_PATH =          os.path.join(DATA_DIR, "val_set_2017-2023_Subheading_Ground_Truth.json.xz")
 
 
 @pytest.mark.integration
@@ -25,7 +25,7 @@ class TestSubheadingPredictor(TestCaseBase):
                                                     "ncbi-aws-pmdm-ingest",
                                                     "async_inference",
                                                      batch_size=128)
-        self.test_set_data = json.load(gzip.open(TEST_SET_DESCRIPTOR_GROUND_TRUTH_PATH, "rt", encoding="utf-8"))
+        self.test_set_data = json.load(gzip.open(TEST_SET_MESH_HEADING_GROUND_TRUTH_PATH, "rt", encoding="utf-8"))
 
     def test_output_for_n_articles(self):
         n = 1000
