@@ -1,7 +1,7 @@
 import boto3
 import sagemaker.session
 from .endpoints import HuggingFaceAsyncEndpoint, HuggingFaceRealTimeEndpoint, TensorflowAsyncEndpoint, TensorflowRealTimeEndpoint
-from .pipelines import MeshHeadingPredictionPipeline, IndexingPipeline, MtiJsonResultsFormatter
+from .pipelines import IndexingPipeline, MeshHeadingPredictionPipeline, MtiJsonResultsFormatter
 from .predictors import CnnModelTop100Predictor, ListwiseModelTopNPredictor, PointwiseModelTopNPredictor, SubheadingPredictor
 from sagemaker.huggingface import HuggingFacePredictor
 from sagemaker.predictor_async import AsyncPredictor

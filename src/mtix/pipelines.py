@@ -1,4 +1,4 @@
-from .utils import average_top_results, Base64Helper, MedlineDateParser, PubMedXmlParser
+from .utils import average_top_results
 
 
 # Note: top results are not always sorted
@@ -28,13 +28,13 @@ class MeshHeadingPredictionPipeline:
             
 class IndexingPipeline:
 
-    def __init__(self, descriptor_prediction_pipeline, subheading_predictor):
-        self.descriptor_prediction_pipeline = descriptor_prediction_pipeline
+    def __init__(self, mesh_heading_prediction_pipeline, subheading_predictor):
+        self.mesh_heading_prediction_pipeline = mesh_heading_prediction_pipeline
         self.subheading_predictor = subheading_predictor
 
     def predict(self, input_data):
-        descriptor_prediction_result = self.descriptor_prediction_pipeline.predict(input_data)
-        predictions = self.subheading_predictor.predict(descriptor_prediction_result)
+        mesh_heading_prediction_result = self.mesh_heading_prediction_pipeline.predict(input_data)
+        predictions = self.subheading_predictor.predict(mesh_heading_prediction_result)
         return predictions
 
 

@@ -31,7 +31,7 @@ class TensorflowEndpointHelper:
         return inputs, parameters
 
     def construct_batch_data(self, batch_inputs, _):
-        batch_data = {"instances": batch_inputs}
+        batch_data = { "instances": batch_inputs }
         return batch_data
 
     def process_response(self, response):
@@ -39,7 +39,7 @@ class TensorflowEndpointHelper:
         return result
 
     def construct_output(self, result_list):
-        output = { "predictions": result_list}
+        output = { "predictions": result_list }
         return output
 
 

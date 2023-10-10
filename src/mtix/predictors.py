@@ -31,7 +31,7 @@ class CnnModelTop100Predictor:
         response = self.tensorflow_endpoint.predict(data)
         predictions = response["predictions"]
         pmids = [citation_data["pmid"] for citation_data in citation_data_list]
-        top_results = { str(pmid): { str(int(desc_id)): float(score) for desc_id, score in citation_top_results} for pmid, citation_top_results in zip(pmids, predictions)}
+        top_results = { str(pmid): { str(int(label_id)): float(score) for label_id, score in citation_top_results} for pmid, citation_top_results in zip(pmids, predictions)}
         return top_results
 
 
