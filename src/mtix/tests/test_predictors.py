@@ -22,13 +22,13 @@ class TestCnnModelTop100Predictor(TestCase):
 
     def test_predict(self):
         tensorflow_endpoint = Mock()
-        tensorflow_endpoint.predict = MagicMock(return_value=TENSORFLOW_ENDPOINT_RESULTS)
+        tensorflow_endpoint.predict = MagicMock(return_value=MESH_HEADING_CNN_ENDPOINT_RESULTS)
         cnn_predictor = CnnModelTop100Predictor(tensorflow_endpoint)
         top_results = cnn_predictor.predict(EXPECTED_CITATION_DATA_LOOKUP)
         top_results = round_top_results(top_results, 4)
         cnn_results = round_top_results(CNN_RESULTS, 4)
         self.assertEqual(top_results, cnn_results, "top results not as expected.")
-        tensorflow_endpoint.predict.assert_called_once_with(TENSORFLOW_ENDPOINT_EXPECTED_INPUT_DATA)
+        tensorflow_endpoint.predict.assert_called_once_with(MESH_HEADING_CNN_ENDPOINT_EXPECTED_INPUT_DATA)
 
     def test_replace_brackets(self):
         results = replace_brackets(REPLACE_BRACKETS_INPUT)
@@ -40,7 +40,7 @@ class TestPointwiseModelTopNPredictor(TestCase):
 
     def test_predict(self):
         huggingface_endpoint = Mock()
-        huggingface_endpoint.predict = MagicMock(return_value=HUGGINGFACE_PREDICTOR_POINTWISE_RESULTS)
+        huggingface_endpoint.predict = MagicMock(return_value=HUGGINGFACE_ENDPOINT_POINTWISE_RESULTS)
         
         top_n = 5
         pointwise_predictor = PointwiseModelTopNPredictor(huggingface_endpoint, NAME_W_TYPES_LOOKUP, top_n)
@@ -90,9 +90,9 @@ class TestSubheadingPredictor(TestCase):
         subheading_endpoint = Mock()
         subheading_endpoint.predict = MagicMock(return_value=SUBHEADING_ENDPOINT_RESULTS)
         subheading_predictor = SubheadingPredictor(input_parser, data_sanitizer, subheading_endpoint, SUBHEADING_NAME_LOOKUP)
-        predictions = subheading_predictor.predict(EXPECTED_DESCRIPTOR_PREDICTIONS)
+        predictions = subheading_predictor.predict(EXPECTED_MESH_HEADING_PREDICTIONS)
      
-        self.assertEqual(predictions, EXPECTED_DESCRIPTOR_PREDICTIONS_WITH_SUBHEADINGS, "subheading predictions not as expected.")
+        self.assertEqual(predictions, EXPECTED_MESH_HEADING_PREDICTIONS_WITH_SUBHEADINGS, "subheading predictions not as expected.")
         santizer_call_list = [call(citation_data) for citation_data in EXPECTED_CITATION_DATA_LOOKUP.values()]
         data_sanitizer.sanitize.assert_has_calls(santizer_call_list, any_order=False)
         subheading_endpoint.predict.assert_called_once_with(SUBHEADING_ENDPOINT_EXPECTED_INPUT_DATA)

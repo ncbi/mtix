@@ -338,19 +338,19 @@ class TestPubMedXmlInputDataParser(TestCase):
         input_data = []
         citaton_data_list = self.parser.parse(input_data)
         expected_citation_data_list = []
-        self.assertEqual(citaton_data_list, expected_citation_data_list, "Expected citation data to be an empty dictionary.")
+        self.assertEqual(citaton_data_list, expected_citation_data_list, "Expected citation data list to be empty.")
 
     def test_parse_one_citation(self):
         input_data = PUBMED_XML_INPUT_DATA[:1]
         citaton_data_list = self.parser.parse(input_data)
-        expected_citation_list = list(EXPECTED_CITATION_DATA_LOOKUP.values())[:1]
-        self.assertEqual(citaton_data_list, expected_citation_list, "Citation data different from expected citation data.")
+        expected_citation_data_list = list(EXPECTED_CITATION_DATA_LOOKUP.values())[:1]
+        self.assertEqual(citaton_data_list, expected_citation_data_list, "Citation data list different from expected citation data list.")
 
     def test_parse_two_citations(self):
         input_data = PUBMED_XML_INPUT_DATA
         citaton_data_list = self.parser.parse(input_data)
-        expected_citation_list = list(EXPECTED_CITATION_DATA_LOOKUP.values())
-        self.assertEqual(citaton_data_list, expected_citation_list, "Citation data different from expected citation data.")
+        expected_citation_data_list = list(EXPECTED_CITATION_DATA_LOOKUP.values())
+        self.assertEqual(citaton_data_list, expected_citation_data_list, "Citation data list different from expected citation data list.")
 
     def test_parse_data(self):
         data = PUBMED_XML_INPUT_DATA[0]["data"]
