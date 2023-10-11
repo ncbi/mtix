@@ -5,25 +5,26 @@ from unittest import TestCase
 EPS = 1e-9
 
 
-def compute_metrics(y_true, y_pred, s_filter=None):
+def compute_metrics(y_true, y_pred, subheadings = False, subheading_filter=None):
 
-    def _extract_triples(results):
+    def _extract_triples(result_list):
         triple_set = set()
-        for citation_prediction in results:
-            pmid = citation_prediction["PMID"]
-            for descriptor_prediction in citation_prediction["Indexing"]:
-                d_name = descriptor_prediction["Term"]
-                if "Subheadings" in descriptor_prediction:
-                    for subheading_prediction in descriptor_prediction["Subheadings"]:
-                        s_name = subheading_prediction["Name"]
-                        if s_filter is None or s_name in s_filter:
-                            triple_set.add((pmid, d_name, s_name))
+        for result in result_list:
+            pmid = result["PMID"]
+            for mh_prediction in result["Indexing"]:
+                mh_name = mh_prediction["Term"]
+                if subheadings:
+                    if "Subheadings" in mh_prediction:
+                        for sh_prediction in mh_prediction["Subheadings"]:
+                            sh_name = sh_prediction["Name"]
+                            if subheading_filter is None or sh_name in subheading_filter:
+                                triple_set.add((pmid, mh_name, sh_name))
                 else:
-                    triple_set.add((pmid, d_name, ""))
+                    triple_set.add((pmid, mh_name, ""))
         return triple_set
 
-    pred_pmids = {e["PMID"] for e in y_pred}
-    y_true = [e for e in y_true if e["PMID"] in pred_pmids]
+    pred_pmids = { e["PMID"] for e in y_pred }
+    y_true = [ e for e in y_true if e["PMID"] in pred_pmids ]
 
     true_triples = _extract_triples(y_true)
     pred_triples = _extract_triples(y_pred)
