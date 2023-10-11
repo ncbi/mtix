@@ -594,7 +594,7 @@ EXPECTED_MESH_HEADING_PREDICTIONS = [
 ]
 
 
-EXPECTED_MESH_HEADING_PREDICTIONS_WITH_SUBHEADINGS = [
+EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
     {
         "PMID": 32770536,
         "text-gz-64": "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",
@@ -751,6 +751,13 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_SUBHEADINGS = [
                 "IM": "NO",
                 "Reason": "score: 0.580",
                 "Subheadings": []
+            },
+            {
+                "Term": "Journal Article",
+                "Type": "Publication Type",
+                "ID": "D016428",
+                "IM": "NO",
+                "Reason": "score: 0.999"
             }
         ]
     },
@@ -815,6 +822,27 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_SUBHEADINGS = [
                 "IM": "NO",
                 "Reason": "score: 0.509",
                 "Subheadings": [],
+            },
+            {
+                "Term": "Journal Article",
+                "Type": "Publication Type",
+                "ID": "D016428",
+                "IM": "NO",
+                "Reason": "score: 0.999"
+            },
+            {
+                "Term": "Review",
+                "Type": "Publication Type",
+                "ID": "D016454",
+                "IM": "NO",
+                "Reason": "score: 0.900"
+            },
+            {
+                "Term": "Hereditary Renal Cancer Associated 1",
+                "Type": "SCR",
+                "ID": "C564169",
+                "IM": "NO",
+                "Reason": "score: 0.671"
             }
         ]
     },
@@ -1136,6 +1164,169 @@ MESH_HEADING_CNN_ENDPOINT_EXPECTED_INPUT_DATA = {
 
 
 MESH_HEADING_CNN_ENDPOINT_RESULTS = {'predictions': [[[9291.0, 0.99991405], [8857.0, 0.996702492], [15149.0, 0.981794238], [7653.0, 0.909845233], [10719.0, 0.900856435], [7160.0, 0.86951232], [14670.0, 0.855143487], [3075.0, 0.744284689], [17432.0, 0.69153434], [27783.0, 0.668486893], [12453.0, 0.563120902], [27868.0, 0.541304171], [14390.0, 0.492241621], [27896.0, 0.430962443], [13943.0, 0.332509339], [14386.0, 0.315851], [3109.0, 0.243542165], [7828.0, 0.211396158], [1058.0, 0.150405943], [17338.0, 0.150172412], [27389.0, 0.104654014], [8839.0, 0.0997826159], [13133.0, 0.0561132431], [6074.0, 0.0504376888], [14396.0, 0.0449917316], [29719.0, 0.0399412811], [7794.0, 0.0353198946], [13740.0, 0.0283615291], [15372.0, 0.0258080065], [4651.0, 0.0241023], [7655.0, 0.0221712589], [14288.0, 0.021931529], [18833.0, 0.019269973], [29829.0, 0.0188019276], [16178.0, 0.0182481706], [5322.0, 0.0169704854], [16185.0, 0.0166066289], [3465.0, 0.0160861909], [11385.0, 0.0146306157], [17544.0, 0.0132394433], [13135.0, 0.0126036704], [559.0, 0.0118727684], [17955.0, 0.0117587447], [14922.0, 0.00959321856], [3007.0, 0.00951391459], [15050.0, 0.009254843], [12452.0, 0.00909403], [13190.0, 0.00903201103], [13548.0, 0.00823283195], [17678.0, 0.00785788894], [16970.0, 0.00770181417], [20215.0, 0.00707453489], [20262.0, 0.00680217147], [15401.0, 0.00607246161], [17947.0, 0.0059620142], [20752.0, 0.00549894571], [7809.0, 0.0051753521], [12444.0, 0.00512072444], [4933.0, 0.00474593043], [8153.0, 0.0046531558], [17719.0, 0.00450500846], [14410.0, 0.00415948033], [8400.0, 0.00411593914], [14412.0, 0.00405237079], [8847.0, 0.00398141146], [9466.0, 0.00376901031], [5820.0, 0.00363495946], [15849.0, 0.00353822112], [16184.0, 0.00353240967], [8852.0, 0.00347149372], [17452.0, 0.00342169404], [18156.0, 0.00332269073], [29299.0, 0.00325256586], [10595.0, 0.0032376647], [17930.0, 0.00284031034], [7326.0, 0.00280490518], [7021.0, 0.00248488784], [17520.0, 0.00240907073], [4626.0, 0.00240838528], [8870.0, 0.00223615766], [10567.0, 0.00219872594], [25026.0, 0.00218445063], [14316.0, 0.00212264061], [17107.0, 0.00210899115], [3883.0, 0.00202342868], [14408.0, 0.00193503499], [5006.0, 0.00192338228], [10864.0, 0.00190702081], [18374.0, 0.00190156698], [4540.0, 0.00185212493], [8095.0, 0.00177639723], [27196.0, 0.00177267194], [15402.0, 0.00176078081], [29387.0, 0.00174471736], [4072.0, 0.00171655416], [15888.0, 0.00169724226], [4358.0, 0.00165808201], [4505.0, 0.00165367126], [3640.0, 0.00150859356], [3239.0, 0.00146594644]], [[9291.0, 0.999201417], [4978.0, 0.992458224], [10133.0, 0.915374041], [28767.0, 0.493483245], [5649.0, 0.298031092], [3718.0, 0.264089227], [9643.0, 0.214085281], [20100.0, 0.204979181], [3575.0, 0.202000886], [20854.0, 0.201139838], [18671.0, 0.152674764], [1930.0, 0.14245829], [11742.0, 0.106658608], [17505.0, 0.0968137681], [16588.0, 0.0740844309], [13680.0, 0.0597955585], [3719.0, 0.0585802197], [17952.0, 0.0561129451], [5789.0, 0.0561043024], [17965.0, 0.0530118942], [10122.0, 0.0496570468], [10908.0, 0.0450125337], [17911.0, 0.0423626602], [1347.0, 0.0420189798], [28183.0, 0.03696087], [17934.0, 0.0349369943], [19990.0, 0.0329229832], [18791.0, 0.0302933455], [25251.0, 0.0299238861], [28791.0, 0.0292186439], [11737.0, 0.0287246406], [14561.0, 0.0273156464], [3660.0, 0.025931567], [9631.0, 0.0244135559], [18332.0, 0.0216622055], [19045.0, 0.0213854909], [11767.0, 0.0208264291], [3109.0, 0.0192547739], [10719.0, 0.0181569159], [29131.0, 0.0173778236], [21306.0, 0.0162630677], [2344.0, 0.0162172914], [7828.0, 0.0160495639], [11539.0, 0.0158000886], [19115.0, 0.0151584744], [28240.0, 0.0149931312], [12976.0, 0.0146569312], [29181.0, 0.0143497288], [28571.0, 0.0137678981], [27776.0, 0.0132320821], [20468.0, 0.0128287077], [3148.0, 0.0127493143], [21590.0, 0.0123948157], [11349.0, 0.0123589635], [28811.0, 0.0113763511], [27380.0, 0.0110508204], [1634.0, 0.0110328794], [3239.0, 0.0107408464], [11738.0, 0.0104124546], [20106.0, 0.0102720559], [11276.0, 0.00983896852], [29157.0, 0.0093164444], [6958.0, 0.00860962272], [20728.0, 0.00844031572], [22300.0, 0.00820374489], [20098.0, 0.00805518], [19041.0, 0.00746485591], [14025.0, 0.00746440887], [9642.0, 0.00726684928], [14375.0, 0.00722879171], [26604.0, 0.00705805421], [27451.0, 0.00705367327], [17520.0, 0.00700184703], [28010.0, 0.00699970126], [18093.0, 0.00679349899], [9585.0, 0.00664955378], [17439.0, 0.00660660863], [16185.0, 0.00643864274], [4418.0, 0.00642257929], [11739.0, 0.00641462207], [29576.0, 0.00639393926], [21749.0, 0.00608295202], [18823.0, 0.00600987673], [29943.0, 0.00591516495], [75.0, 0.00577512383], [6807.0, 0.00566065311], [25455.0, 0.00543773174], [29869.0, 0.00515505672], [23963.0, 0.00513395667], [6810.0, 0.00504913926], [4400.0, 0.00479242206], [22308.0, 0.00465458632], [14374.0, 0.00453996658], [3149.0, 0.00449174643], [1250.0, 0.00448903441], [6338.0, 0.00444173813], [13006.0, 0.00433811545], [26132.0, 0.00425082445], [15806.0, 0.00415796041], [10129.0, 0.00400665402]]]}
+
+
+MESH_HEADING_PREDICTIONS_WITH_PT_SCR = [
+    {
+        "PMID": 32770536,
+        "text-gz-64": "eJzdWN1u2zgWfhXCwAINYMfyb5yBIiDruFl3YjcTZwL0kpZom1Oa1JKUU93N7b7HvsBezf08wDzEPsl8pGTZTu1ut5hgf4rUkijy/Hzn4zk8CicsEVyyIbfUciXJ+2fJ9FVtejepkRnGMnNVm4xu7sbTUS0K7yfjG/LEtMHUq1qrFnXaFxdBr9MPm+5VFN5Qy4ZqnQpmWRKFHxjVUTtot8Kmvw0nStpVFHTDZnGHBTkmhE13db8Hy93jA9tw862yqsXX2vJYMHKfzScqYeKqdq+5tI2RYLHVSvIY3r1TmZZUROF4NpuSsTHyMU/ZVW1/UqvbuWx0LvvQ6mZVizA7YwQwsgSQ8mx9VRtLy7RkFpKflMjWLOq2w2Z5G/oFEZwpbkJY5iw+6ec7KitHm9Xk5r76KHzkVrCoUOzjSQX5qZhB1IKYVGlryBoGxgh62Czmw9/31/O5Blh+kRNA3pFZMRvuOF8PZ1SKK2gLUTMWK5mAItJyQa3SOXlcaWZWSiTk2hiGv4TMc/IXuGbJA5wgT1RzOueC25xwSSiZZMJycIDMVpmFVPKQSfLIjD0Pmwfawnu65LK0CGzVFgOAeRA2d0/hSCb+ptcLm9v7sOT9/VJiesO92hsBwHuCR3cq9rfg/micFJxIFK/BcsGTD9Or2gcQIzhvBb1ekzZa7Va30e8El1C3Wwqg5sZqGtvd3SP7ZKMJlTkxNks4M2RFN4wsVJw5mLAdVx4m7WDavIDJGBUX0SDP3K7IZg9zu8XcnAN/RtJMp8owxwGLxzjTGrO91pw8U0OsIgic4QnTfsZoeNvAPd/ADIhKuS40UQTXvV/x5YosNPtrxmSck1SrJIutk3/CYuigaSp4TOcI6JrZlUq8WupJ4YWagjxHHSFvnh5Dk80jbCF3OTsnb/nCMuYxEnaVk1xlckmASgwnUkFz5CmSUkcYnsKexMHm9Ti3z8lD6ZfTs6SwwnsHzw15ZhooKeE2PtYlGZLFEq8hIdZsDQOxoQSdq3K5BTn9as/fteOvseAZMSWDNRjsJ2XON8I+rWhmHKLn5Om3v+875sPBZcI3PMmoEDmJqYgz4R3IjLPD+ZCwhTPOxSRVyGQO+n3gEBm+oQIjoMAYViUJd7Pr5BBHr45WG1OBSPP8pIYv0eI4JTzMwMMACvWMZVIBf+rwARece4YvJV/gASoSvlgAehkjGHNmn114D+2tVxTcUQMeJCgYeo3tmxSb4QQ/ywAf9eHN2zftentwdhWcDzp1kuLa7dXJb79AfVqoTyMMBj1w7/rAbKCD7SwAI0iDrSXKbQnD1Nww7VQtlD6tWkPuZffsCziWc3pnhX+HoJyTGV8j8lrkdfJn4aRcC7umLjBU5IZX6NNqm/t9SJeaeTqfQJtswJ6TVq8ZNOxC5gjSAD79f/78t4/rX39ZeeAarQK5Orns/YkM774jv/4DyAaFs0fUnfL/iDYoa3+Fss7gzKVBh4JPeCZbLrEXXdKhtv4tXKFID9ijzA8L7rE8mapRbNmOoW4Dv/DaJ40FZ6Dyy3zhKt5+sQiHKs01DLZjCUatixIF3xBFsFII4l8aZ63nHQQcXbKTi3KUIRvrO2xJsj18lUWtfHVQ6MI7auyU4gwzg0dLrlKVCWXCZjUevlWa+bsb0NJqrgwZhs1qNBxL5CIqTHSD4eohHCcugQEITWY4XcQos+8fhuObWhTgXwP/241Ou42f/mUHC6vpsHOxANxFqYWXBwPRLF4p5Q9A9ytsBqQdMkKId6mrPOnMYu6YVSfT7dnJvfyepioBNgipJD9KcAHHXwQW4q6Rh6SpuyuXLrfeYjvFzAVtT/3BU2Fds8D1X+D7PQoaFfQjPw7uzOYQKgHu9Ci4s+k+uF9E6C1FhSl8qiByvg8xmul9vOpktGEi5QmgmziGUxSb65gmbI3c445yfzQKTouyJzC4R4Jb+tfk9igI97dfDcL/Kk1uUW8SehyfKf+oBAVFbo6iM735f0CnuUtgDha5zNwRn8mlg6R8cv2VO3265e4EX0x+MUh+HF/VboJWv9se1KKywyFly+G7rv3Z0WcjhdByvmvQiPv5vImserzgRS87OOhlg4ttL7sncvdUNTHbHtCjMkTSsDoHK5DqZe7SfzGwnf14faS/270Lp2KNAKEYomcZBMGg00Ujsz/o2+M7Lj+ilEVB66Ld6Pbb7aIf3g5XEg9tK78yzDKcimw0nsC6wyEYaVboDRMIKdDcGwAqzMSapzjhOiKTCf1J6UeV8rjYFNv49ToB4nctKdNqzuNdCwo8DyR4O/fkf72y6VZZ0O3127WoDG9MdcLVUtN0lb+Gsl4wCKDsE9MxRz/nmuLP1fyAvsHXxdMg/YBi2rm4rEVlJxY2DxZ9u6lVEIJ+pwP5uz7/NeDoD4IWdGRgunkF+a2gfdGrochoavI1esgVw84jU5ysVIZUlxvL1v8e/tMd/r0AvEldMlVCLfM/PgStVr+HENxnYo1EjDp9i4Zk9CleISm+Rjha7W4b7HzIpDvlfjMvXwuXPTsvW/1aNPNfCv7rwrczs9Prd2Hmf5p5zc9y8lBx923Yd46R+75EfQF2TQ66YM18Y+Wa9Lz4oCX916UFSqX/isDd98miuTmQVBWNbVGIfgd8ZPNK",
+        "Indexing": [
+            {
+                "Term": "Humans",
+                "Type": "Check Tag",
+                "ID": "D006801",
+                "IM": "NO",
+                "Reason": "score: 1.000"
+            },
+            {
+                "Term": "Heart Rate",
+                "Type": "Descriptor",
+                "ID": "D006339",
+                "IM": "NO",
+                "Reason": "score: 0.998"
+            },
+            {
+                "Term": "Exercise Test",
+                "Type": "Descriptor",
+                "ID": "D005080",
+                "IM": "NO",
+                "Reason": "score: 0.949"
+            },
+            {
+                "Term": "Electrocardiography",
+                "Type": "Descriptor",
+                "ID": "D004562",
+                "IM": "NO",
+                "Reason": "score: 0.947"
+            },
+            {
+                "Term": "Soccer",
+                "Type": "Descriptor",
+                "ID": "D012916",
+                "IM": "NO",
+                "Reason": "score: 0.887"
+            },
+            {
+                "Term": "Male",
+                "Type": "Check Tag",
+                "ID": "D008297",
+                "IM": "NO",
+                "Reason": "score: 0.879"
+            },
+            {
+                "Term": "Running",
+                "Type": "Descriptor",
+                "ID": "D012420",
+                "IM": "NO",
+                "Reason": "score: 0.853"
+            },
+            {
+                "Term": "Young Adult",
+                "Type": "Check Tag",
+                "ID": "D055815",
+                "IM": "NO",
+                "Reason": "score: 0.827"
+            },
+            {
+                "Term": "Oxygen Consumption",
+                "Type": "Descriptor",
+                "ID": "D010101",
+                "IM": "NO",
+                "Reason": "score: 0.675"
+            },
+            {
+                "Term": "Adolescent",
+                "Type": "Check Tag",
+                "ID": "D000293",
+                "IM": "NO",
+                "Reason": "score: 0.668"
+            },
+            {
+                "Term": "Anaerobic Threshold",
+                "Type": "Descriptor",
+                "ID": "D015308",
+                "IM": "NO",
+                "Reason": "score: 0.664"
+            },
+            {
+                "Term": "Pulmonary Ventilation",
+                "Type": "Descriptor",
+                "ID": "D012123",
+                "IM": "NO",
+                "Reason": "score: 0.590"
+            },
+            {
+                "Term": "Respiration",
+                "Type": "Descriptor",
+                "ID": "D012119",
+                "IM": "NO",
+                "Reason": "score: 0.580"
+            },
+            {
+                "Term": "Journal Article",
+                "Type": "Publication Type",
+                "ID": "D016428",
+                "IM": "NO",
+                "Reason": "score: 0.999"
+            },
+        ]
+    },
+    {
+        "PMID": 30455223,
+        "text-gz-64": "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",
+        "Indexing": [
+            {
+                "Term": "Humans",
+                "Type": "Check Tag",
+                "ID": "D006801",
+                "IM": "NO",
+                "Reason": "score: 0.999"
+            },
+            {
+                "Term": "Carcinoma, Renal Cell",
+                "Type": "Descriptor",
+                "ID": "D002292",
+                "IM": "NO",
+                "Reason": "score: 0.997"
+            },
+            {
+                "Term": "Kidney Neoplasms",
+                "Type": "Descriptor",
+                "ID": "D007680",
+                "IM": "NO",
+                "Reason": "score: 0.899"
+            },
+            {
+                "Term": "Molecular Targeted Therapy",
+                "Type": "Descriptor",
+                "ID": "D058990",
+                "IM": "NO",
+                "Reason": "score: 0.509"
+            },
+            {
+                "Term": "Journal Article",
+                "Type": "Publication Type",
+                "ID": "D016428",
+                "IM": "NO",
+                "Reason": "score: 0.999"
+            },
+            {
+                "Term": "Review",
+                "Type": "Publication Type",
+                "ID": "D016454",
+                "IM": "NO",
+                "Reason": "score: 0.900"
+            },
+            {
+                "Term": "Hereditary Renal Cancer Associated 1",
+                "Type": "SCR",
+                "ID": "C564169",
+                "IM": "NO",
+                "Reason": "score: 0.671"
+            }
+        ]
+    },
+]
 
 
 NAME_LOOKUP = {

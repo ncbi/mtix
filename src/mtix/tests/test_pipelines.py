@@ -46,17 +46,17 @@ class TestIndexingPipeline(TestCase):
 
     def setUp(self):
         self.meshHeadingPredictionPipeline = MeshHeadingPredictionPipeline(None, None, None, None, None, None)
-        self.meshHeadingPredictionPipeline.predict = MagicMock(return_value=EXPECTED_MESH_HEADING_PREDICTIONS)
+        self.meshHeadingPredictionPipeline.predict = MagicMock(return_value=MESH_HEADING_PREDICTIONS_WITH_PT_SCR)
         self.subheading_predictor = SubheadingPredictor(None, None, None, None)
-        self.subheading_predictor.predict = MagicMock(return_value=EXPECTED_MESH_HEADING_PREDICTIONS_WITH_SUBHEADINGS)
+        self.subheading_predictor.predict = MagicMock(return_value=EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING)
         self.pipeline = IndexingPipeline(self.meshHeadingPredictionPipeline, self.subheading_predictor)
 
     def test_predict(self):        
         predictions = self.pipeline.predict(PUBMED_XML_INPUT_DATA)
     
-        self.assertEqual(predictions, EXPECTED_MESH_HEADING_PREDICTIONS_WITH_SUBHEADINGS, "Predictions do not match expected result.")
+        self.assertEqual(predictions, EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING, "Predictions do not match expected result.")
         self.meshHeadingPredictionPipeline.predict.assert_called_once_with(PUBMED_XML_INPUT_DATA)
-        self.subheading_predictor.predict.assert_called_once_with(EXPECTED_MESH_HEADING_PREDICTIONS)
+        self.subheading_predictor.predict.assert_called_once_with(MESH_HEADING_PREDICTIONS_WITH_PT_SCR)
 
 
 @pytest.mark.unit

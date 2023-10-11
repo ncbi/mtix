@@ -90,9 +90,9 @@ class TestSubheadingPredictor(TestCase):
         subheading_endpoint = Mock()
         subheading_endpoint.predict = MagicMock(return_value=SUBHEADING_ENDPOINT_RESULTS)
         subheading_predictor = SubheadingPredictor(input_parser, data_sanitizer, subheading_endpoint, SUBHEADING_NAME_LOOKUP)
-        predictions = subheading_predictor.predict(EXPECTED_MESH_HEADING_PREDICTIONS)
+        predictions = subheading_predictor.predict(MESH_HEADING_PREDICTIONS_WITH_PT_SCR)
      
-        self.assertEqual(predictions, EXPECTED_MESH_HEADING_PREDICTIONS_WITH_SUBHEADINGS, "subheading predictions not as expected.")
+        self.assertEqual(predictions, EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING, "subheading predictions not as expected.")
         santizer_call_list = [call(citation_data) for citation_data in EXPECTED_CITATION_DATA_LOOKUP.values()]
         data_sanitizer.sanitize.assert_has_calls(santizer_call_list, any_order=False)
         subheading_endpoint.predict.assert_called_once_with(SUBHEADING_ENDPOINT_EXPECTED_INPUT_DATA)
