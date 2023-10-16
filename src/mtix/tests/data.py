@@ -469,91 +469,104 @@ EXPECTED_MESH_HEADING_PREDICTIONS = [
                 "Type": "Check Tag",
                 "ID": "D006801",
                 "IM": "NO",
-                "Reason": "score: 1.000"
+                "Reason": "ML Score",
+                "Score": 1.000
             },
             {
                 "Term": "Heart Rate",
                 "Type": "Descriptor",
                 "ID": "D006339",
                 "IM": "NO",
-                "Reason": "score: 0.998"
+                "Reason": "ML Score",
+                "Score": 0.998
             },
             {
                 "Term": "Exercise Test",
                 "Type": "Descriptor",
                 "ID": "D005080",
                 "IM": "NO",
-                "Reason": "score: 0.949"
+                "Reason": "ML Score",
+                "Score": 0.949
             },
             {
                 "Term": "Electrocardiography",
                 "Type": "Descriptor",
                 "ID": "D004562",
                 "IM": "NO",
-                "Reason": "score: 0.947"
+                "Reason": "ML Score",
+                "Score": 0.947
             },
             {
                 "Term": "Soccer",
                 "Type": "Descriptor",
                 "ID": "D012916",
                 "IM": "NO",
-                "Reason": "score: 0.887"
+                "Reason": "ML Score",
+                "Score": 0.887
             },
             {
                 "Term": "Male",
                 "Type": "Check Tag",
                 "ID": "D008297",
                 "IM": "NO",
-                "Reason": "score: 0.879"
+                "Reason": "ML Score",
+                "Score": 0.879
             },
             {
                 "Term": "Running",
                 "Type": "Descriptor",
                 "ID": "D012420",
                 "IM": "NO",
-                "Reason": "score: 0.853"
+                "Reason": "ML Score",
+                "Score": 0.853
             },
             {
                 "Term": "Young Adult",
                 "Type": "Check Tag",
                 "ID": "D055815",
                 "IM": "NO",
-                "Reason": "score: 0.827"
+                "Reason": "ML Score",
+                "Score": 0.827
             },
             {
                 "Term": "Oxygen Consumption",
                 "Type": "Descriptor",
                 "ID": "D010101",
                 "IM": "NO",
-                "Reason": "score: 0.675"
+                "Reason": "ML Score",
+                "Score": 0.675
             },
             {
                 "Term": "Adolescent",
                 "Type": "Check Tag",
                 "ID": "D000293",
                 "IM": "NO",
-                "Reason": "score: 0.668"
+                "Reason": "ML Score",
+                "Score": 0.668
             },
             {
                 "Term": "Anaerobic Threshold",
                 "Type": "Descriptor",
                 "ID": "D015308",
                 "IM": "NO",
-                "Reason": "score: 0.664"
+                "Reason": "ML Score",
+                "Score": 0.664
             },
             {
                 "Term": "Pulmonary Ventilation",
                 "Type": "Descriptor",
                 "ID": "D012123",
                 "IM": "NO",
-                "Reason": "score: 0.590"
+                "Reason": "ML Score",
+                "Score": 0.590
             },
             {
                 "Term": "Respiration",
                 "Type": "Descriptor",
                 "ID": "D012119",
                 "IM": "NO",
-                "Reason": "score: 0.580"
+                "Reason": "ML Score",
+                "Score": 0.580
             }
         ]
     },
@@ -566,28 +579,32 @@ EXPECTED_MESH_HEADING_PREDICTIONS = [
                 "Type": "Check Tag",
                 "ID": "D006801",
                 "IM": "NO",
-                "Reason": "score: 0.999"
+                "Reason": "ML Score",
+                "Score": 0.999
             },
             {
                 "Term": "Carcinoma, Renal Cell",
                 "Type": "Descriptor",
                 "ID": "D002292",
                 "IM": "NO",
-                "Reason": "score: 0.997"
+                "Reason": "ML Score",
+                "Score": 0.997
             },
             {
                 "Term": "Kidney Neoplasms",
                 "Type": "Descriptor",
                 "ID": "D007680",
                 "IM": "NO",
-                "Reason": "score: 0.899"
+                "Reason": "ML Score",
+                "Score": 0.899
             },
             {
                 "Term": "Molecular Targeted Therapy",
                 "Type": "Descriptor",
                 "ID": "D058990",
                 "IM": "NO",
-                "Reason": "score: 0.509"
+                "Reason": "ML Score",
+                "Score": 0.509
             }
         ]
     },
@@ -604,7 +621,8 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
                 "Type": "Check Tag",
                 "ID": "D006801",
                 "IM": "NO",
-                "Reason": "score: 1.000",
+                "Reason": "ML Score",
+                "Score": 1.000,
                 "Subheadings": []
             },
             {
@@ -612,13 +630,15 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
                 "Type": "Descriptor",
                 "ID": "D006339",
                 "IM": "NO",
-                "Reason": "score: 0.998",
+                "Reason": "ML Score",
+                "Score": 0.998,
                 "Subheadings": [
                     {
                         "ID": "Q000502",
                         "IM": "NO",
                         "Name": "physiology",
-                        "Reason": "score: 0.565"
+                        "Reason": "ML Score",
+                        "Score": 0.565
                     },
                 ]
             },
@@ -627,13 +647,15 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
                 "Type": "Descriptor",
                 "ID": "D005080",
                 "IM": "NO",
-                "Reason": "score: 0.949",
+                "Reason": "ML Score",
+                "Score": 0.949,
                 "Subheadings": [
                     {
                         "ID": "Q000379",
                         "IM": "NO",
                         "Name": "methods",
-                        "Reason": "score: 0.572"
+                        "Reason": "ML Score",
+                        "Score": 0.572
                     },
                 ]
             },
@@ -642,7 +664,8 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
                 "Type": "Descriptor",
                 "ID": "D004562",
                 "IM": "NO",
-                "Reason": "score: 0.947",
+                "Reason": "ML Score",
+                "Score": 0.947,
                 "Subheadings": []
             },
             {
@@ -650,13 +673,15 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
                 "Type": "Descriptor",
                 "ID": "D012916",
                 "IM": "NO",
-                "Reason": "score: 0.887",
+                "Reason": "ML Score",
+                "Score": 0.887,
                 "Subheadings": [
                     {
                         "ID": "Q000502",
                         "IM": "NO",
                         "Name": "physiology",
-                        "Reason": "score: 0.925"
+                        "Reason": "ML Score",
+                        "Score": 0.925
                     },
                 ]
             },
@@ -665,7 +690,8 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
                 "Type": "Check Tag",
                 "ID": "D008297",
                 "IM": "NO",
-                "Reason": "score: 0.879",
+                "Reason": "ML Score",
+                "Score": 0.879,
                 "Subheadings": []
             },
             {
@@ -673,13 +699,15 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
                 "Type": "Descriptor",
                 "ID": "D012420",
                 "IM": "NO",
-                "Reason": "score: 0.853",
+                "Reason": "ML Score",
+                "Score": 0.853,
                 "Subheadings": [
                     {
                         "ID": "Q000502",
                         "IM": "NO",
                         "Name": "physiology",
-                        "Reason": "score: 0.949"
+                        "Reason": "ML Score",
+                        "Score": 0.949
                     },
                 ]
             },
@@ -688,7 +716,8 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
                 "Type": "Check Tag",
                 "ID": "D055815",
                 "IM": "NO",
-                "Reason": "score: 0.827",
+                "Reason": "ML Score",
+                "Score": 0.827,
                 "Subheadings": []
             },
             {
@@ -696,13 +725,15 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
                 "Type": "Descriptor",
                 "ID": "D010101",
                 "IM": "NO",
-                "Reason": "score: 0.675",
+                "Reason": "ML Score",
+                "Score": 0.675,
                 "Subheadings": [
                     {
                         "ID": "Q000502",
                         "IM": "NO",
                         "Name": "physiology",
-                        "Reason": "score: 0.391"
+                        "Reason": "ML Score",
+                        "Score": 0.391
                     },
                 ]
             },
@@ -711,7 +742,8 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
                 "Type": "Check Tag",
                 "ID": "D000293",
                 "IM": "NO",
-                "Reason": "score: 0.668",
+                "Reason": "ML Score",
+                "Score": 0.668,
                 "Subheadings": []
             },
             {
@@ -719,13 +751,15 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
                 "Type": "Descriptor",
                 "ID": "D015308",
                 "IM": "NO",
-                "Reason": "score: 0.664",
+                "Reason": "ML Score",
+                "Score": 0.664,
                 "Subheadings": [
                     {
                         "ID": "Q000502",
                         "IM": "NO",
                         "Name": "physiology",
-                        "Reason": "score: 0.652"
+                        "Reason": "ML Score",
+                        "Score": 0.652
                     },
                 ]
             },
@@ -734,13 +768,15 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
                 "Type": "Descriptor",
                 "ID": "D012123",
                 "IM": "NO",
-                "Reason": "score: 0.590",
+                "Reason": "ML Score",
+                "Score": 0.590,
                 "Subheadings": [
                     {
                         "ID": "Q000502",
                         "IM": "NO",
                         "Name": "physiology",
-                        "Reason": "score: 0.408"
+                        "Reason": "ML Score",
+                        "Score": 0.408
                     },
                 ]
             },
@@ -749,7 +785,8 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
                 "Type": "Descriptor",
                 "ID": "D012119",
                 "IM": "NO",
-                "Reason": "score: 0.580",
+                "Reason": "ML Score",
+                "Score": 0.580,
                 "Subheadings": []
             },
             {
@@ -757,7 +794,8 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
                 "Type": "Publication Type",
                 "ID": "D016428",
                 "IM": "NO",
-                "Reason": "score: 0.999"
+                "Reason": "ML Score",
+                "Score": 0.999,
             }
         ]
     },
@@ -770,7 +808,8 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
                 "Type": "Check Tag",
                 "ID": "D006801",
                 "IM": "NO",
-                "Reason": "score: 0.999",
+                "Reason": "ML Score",
+                "Score": 0.999,
                 "Subheadings": []
             },
             {
@@ -778,19 +817,22 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
                 "Type": "Descriptor",
                 "ID": "D002292",
                 "IM": "NO",
-                "Reason": "score: 0.997",
+                "Reason": "ML Score",
+                "Score": 0.997,
                 "Subheadings": [
                     {
                         "ID": "Q000628",
                         "IM": "NO",
                         "Name": "therapy",
-                        "Reason": "score: 0.692"
+                        "Reason": "ML Score",
+                        "Score": 0.692
                     },
                     {
                         "ID": "Q000473",
                         "IM": "NO",
                         "Name": "pathology",
-                        "Reason": "score: 0.594"
+                        "Reason": "ML Score",
+                        "Score": 0.594
                     }
                 ]
             },
@@ -799,19 +841,22 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
                 "Type": "Descriptor",
                 "ID": "D007680",
                 "IM": "NO",
-                "Reason": "score: 0.899",
+                "Reason": "ML Score",
+                "Score": 0.899,
                 "Subheadings": [
                     {
                         "ID": "Q000628",
                         "IM": "NO",
                         "Name": "therapy",
-                        "Reason": "score: 0.605"
+                        "Reason": "ML Score",
+                        "Score": 0.605
                     },
                     {
                         "ID": "Q000473",
                         "IM": "NO",
                         "Name": "pathology",
-                        "Reason": "score: 0.598"
+                        "Reason": "ML Score",
+                        "Score": 0.598
                     }
                 ]
             },
@@ -820,7 +865,8 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
                 "Type": "Descriptor",
                 "ID": "D058990",
                 "IM": "NO",
-                "Reason": "score: 0.509",
+                "Reason": "ML Score",
+                "Score": 0.509,
                 "Subheadings": [],
             },
             {
@@ -828,21 +874,24 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
                 "Type": "Publication Type",
                 "ID": "D016428",
                 "IM": "NO",
-                "Reason": "score: 0.999"
+                "Reason": "ML Score",
+                "Score": 0.999,
             },
             {
                 "Term": "Review",
                 "Type": "Publication Type",
                 "ID": "D016454",
                 "IM": "NO",
-                "Reason": "score: 0.900"
+                "Reason": "ML Score",
+                "Score": 0.900,
             },
             {
                 "Term": "Hereditary Renal Cancer Associated 1",
                 "Type": "SCR",
                 "ID": "C564169",
                 "IM": "NO",
-                "Reason": "score: 0.671"
+                "Reason": "ML Score",
+                "Score": 0.671,
             }
         ]
     },
@@ -1176,98 +1225,112 @@ MESH_HEADING_PREDICTIONS_WITH_PT_SCR = [
                 "Type": "Check Tag",
                 "ID": "D006801",
                 "IM": "NO",
-                "Reason": "score: 1.000"
+                "Reason": "ML Score",
+                "Score": 1.000
             },
             {
                 "Term": "Heart Rate",
                 "Type": "Descriptor",
                 "ID": "D006339",
                 "IM": "NO",
-                "Reason": "score: 0.998"
+                "Reason": "ML Score",
+                "Score": 0.998
             },
             {
                 "Term": "Exercise Test",
                 "Type": "Descriptor",
                 "ID": "D005080",
                 "IM": "NO",
-                "Reason": "score: 0.949"
+                "Reason": "ML Score",
+                "Score": 0.949
             },
             {
                 "Term": "Electrocardiography",
                 "Type": "Descriptor",
                 "ID": "D004562",
                 "IM": "NO",
-                "Reason": "score: 0.947"
+                "Reason": "ML Score",
+                "Score": 0.947
             },
             {
                 "Term": "Soccer",
                 "Type": "Descriptor",
                 "ID": "D012916",
                 "IM": "NO",
-                "Reason": "score: 0.887"
+                "Reason": "ML Score",
+                "Score": 0.887
             },
             {
                 "Term": "Male",
                 "Type": "Check Tag",
                 "ID": "D008297",
                 "IM": "NO",
-                "Reason": "score: 0.879"
+                "Reason": "ML Score",
+                "Score": 0.879
             },
             {
                 "Term": "Running",
                 "Type": "Descriptor",
                 "ID": "D012420",
                 "IM": "NO",
-                "Reason": "score: 0.853"
+                "Reason": "ML Score",
+                "Score": 0.853
             },
             {
                 "Term": "Young Adult",
                 "Type": "Check Tag",
                 "ID": "D055815",
                 "IM": "NO",
-                "Reason": "score: 0.827"
+                "Reason": "ML Score",
+                "Score": 0.827
             },
             {
                 "Term": "Oxygen Consumption",
                 "Type": "Descriptor",
                 "ID": "D010101",
                 "IM": "NO",
-                "Reason": "score: 0.675"
+                "Reason": "ML Score",
+                "Score": 0.675
             },
             {
                 "Term": "Adolescent",
                 "Type": "Check Tag",
                 "ID": "D000293",
                 "IM": "NO",
-                "Reason": "score: 0.668"
+                "Reason": "ML Score",
+                "Score": 0.668
             },
             {
                 "Term": "Anaerobic Threshold",
                 "Type": "Descriptor",
                 "ID": "D015308",
                 "IM": "NO",
-                "Reason": "score: 0.664"
+                "Reason": "ML Score",
+                "Score": 0.664
             },
             {
                 "Term": "Pulmonary Ventilation",
                 "Type": "Descriptor",
                 "ID": "D012123",
                 "IM": "NO",
-                "Reason": "score: 0.590"
+                "Reason": "ML Score",
+                "Score": 0.590
             },
             {
                 "Term": "Respiration",
                 "Type": "Descriptor",
                 "ID": "D012119",
                 "IM": "NO",
-                "Reason": "score: 0.580"
+                "Reason": "ML Score",
+                "Score": 0.580
             },
             {
                 "Term": "Journal Article",
                 "Type": "Publication Type",
                 "ID": "D016428",
                 "IM": "NO",
-                "Reason": "score: 0.999"
+                "Reason": "ML Score",
+                "Score": 0.999
             },
         ]
     },
@@ -1280,49 +1343,56 @@ MESH_HEADING_PREDICTIONS_WITH_PT_SCR = [
                 "Type": "Check Tag",
                 "ID": "D006801",
                 "IM": "NO",
-                "Reason": "score: 0.999"
+                "Reason": "ML Score",
+                "Score": 0.999
             },
             {
                 "Term": "Carcinoma, Renal Cell",
                 "Type": "Descriptor",
                 "ID": "D002292",
                 "IM": "NO",
-                "Reason": "score: 0.997"
+                "Reason": "ML Score",
+                "Score": 0.997
             },
             {
                 "Term": "Kidney Neoplasms",
                 "Type": "Descriptor",
                 "ID": "D007680",
                 "IM": "NO",
-                "Reason": "score: 0.899"
+                "Reason": "ML Score",
+                "Score": 0.899
             },
             {
                 "Term": "Molecular Targeted Therapy",
                 "Type": "Descriptor",
                 "ID": "D058990",
                 "IM": "NO",
-                "Reason": "score: 0.509"
+                "Reason": "ML Score",
+                "Score": 0.509
             },
             {
                 "Term": "Journal Article",
                 "Type": "Publication Type",
                 "ID": "D016428",
                 "IM": "NO",
-                "Reason": "score: 0.999"
+                "Reason": "ML Score",
+                "Score": 0.999
             },
             {
                 "Term": "Review",
                 "Type": "Publication Type",
                 "ID": "D016454",
                 "IM": "NO",
-                "Reason": "score: 0.900"
+                "Reason": "ML Score",
+                "Score": 0.900
             },
             {
                 "Term": "Hereditary Renal Cancer Associated 1",
                 "Type": "SCR",
                 "ID": "C564169",
                 "IM": "NO",
-                "Reason": "score: 0.671"
+                "Reason": "ML Score",
+                "Score": 0.671
             }
         ]
     },

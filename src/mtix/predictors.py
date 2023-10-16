@@ -186,7 +186,8 @@ class SubheadingPredictor:
                             "ID": qui,
                             "IM": "NO",
                             "Name": self.subheading_name_lookup[qui],
-                            "Reason": f"score: {score:.3f}"
+                            "Reason": "ML Score",
+                            "Score": round(score, 3)
                             })
         return mesh_heading_predictions
 
