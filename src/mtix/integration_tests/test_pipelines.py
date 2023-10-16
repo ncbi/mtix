@@ -26,7 +26,7 @@ TEST_SET_SUBHEADING_GROUND_TRUTH_PATH =                   os.path.join(DATA_DIR,
 
 
 @pytest.mark.integration
-class TestMeSHHeadingPredictionPipeline(TestCaseBase):
+class TestMeshHeadingPredictionPipeline(TestCaseBase):
 
     def setUp(self):
         self.pipeline = create_mesh_heading_prediction_pipeline(NAME_LOOKUP_PATH, 

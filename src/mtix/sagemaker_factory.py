@@ -12,10 +12,10 @@ from .utils import CitationDataSanitizer, create_lookup, PubMedXmlInputDataParse
 CONCURRENT_BATCHES = 100
 MAX_YEAR = 2023
 WAIT_DELAY = 1
-WAIT_MAX_ATTEMPTS = 900
+WAIT_MAX_ATTEMPTS = 1800
 
 
-def create_mesh_heading_prediction_pipeline(name_lookup_path, ui_lookup_path, type_lookup_path, pointwise_passage_lookup_path, listwise_passage_lookup_path, cnn_endpoint_name, pointwise_endpoint_name, listwise_endpoint_name, async_bucket_name, async_prefix, cnn_batch_size=128, pointwise_batch_size=128, listwise_batch_size=128, vpc_endpoint=None):
+def create_mesh_heading_prediction_pipeline(name_lookup_path, ui_lookup_path, type_lookup_path, pointwise_passage_lookup_path, listwise_passage_lookup_path, cnn_endpoint_name, pointwise_endpoint_name, listwise_endpoint_name, async_bucket_name=None, async_prefix=None, cnn_batch_size=128, pointwise_batch_size=128, listwise_batch_size=128, vpc_endpoint=None):
     is_async = (async_bucket_name is not None) and (async_prefix is not None)
     
     concurrent_batches = CONCURRENT_BATCHES
@@ -69,14 +69,14 @@ def create_mesh_heading_prediction_pipeline(name_lookup_path, ui_lookup_path, ty
     return pipeline
 
 
-def create_indexing_pipeline(name_lookup_path, ui_lookup_path, type_lookup_path, pointwise_passage_lookup_path, listwise_passage_lookup_path, subheading_name_lookup_path, cnn_endpoint_name, pointwise_endpoint_name, listwise_endpoint_name, subheading_endpoint_name, async_bucket_name, async_prefix, cnn_batch_size=128, pointwise_batch_size=128, listwise_batch_size=128, subheading_batch_size=128, vpc_endpoint=None):
+def create_indexing_pipeline(name_lookup_path, ui_lookup_path, type_lookup_path, pointwise_passage_lookup_path, listwise_passage_lookup_path, subheading_name_lookup_path, cnn_endpoint_name, pointwise_endpoint_name, listwise_endpoint_name, subheading_endpoint_name, async_bucket_name=None, async_prefix=None, cnn_batch_size=128, pointwise_batch_size=128, listwise_batch_size=128, subheading_batch_size=128, vpc_endpoint=None):
     mesh_heading_prediction_pipeline = create_mesh_heading_prediction_pipeline(name_lookup_path, ui_lookup_path, type_lookup_path, pointwise_passage_lookup_path, listwise_passage_lookup_path, cnn_endpoint_name, pointwise_endpoint_name, listwise_endpoint_name, async_bucket_name, async_prefix, cnn_batch_size, pointwise_batch_size, listwise_batch_size, vpc_endpoint)
     subheading_predictor = create_subheading_predictor(subheading_name_lookup_path, subheading_endpoint_name, async_bucket_name, async_prefix, subheading_batch_size, vpc_endpoint=vpc_endpoint)
     indexing_pipeline = IndexingPipeline(mesh_heading_prediction_pipeline, subheading_predictor)
     return indexing_pipeline
 
 
-def create_subheading_predictor(subheading_name_lookup_path, subheading_endpoint_name, async_bucket_name, async_prefix, batch_size=128, vpc_endpoint=None):
+def create_subheading_predictor(subheading_name_lookup_path, subheading_endpoint_name, async_bucket_name=None, async_prefix=None, batch_size=128, vpc_endpoint=None):
     is_async = (async_bucket_name is not None) and (async_prefix is not None)
 
     concurrent_batches = CONCURRENT_BATCHES
