@@ -62,6 +62,8 @@ class MtiJsonResultsFormatter:
                         "Type": _type, 
                         "ID": ui, 
                         "IM": "NO", 
-                        "Reason": "ML Score",
-                        "Score": round(score, 3)})
+                        "Reasons": [{
+                            "Kind": "MTIX",
+                            "Score": round(score, 3) }]
+                        })
         return mti_json
