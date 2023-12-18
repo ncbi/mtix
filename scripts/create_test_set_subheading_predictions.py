@@ -44,7 +44,7 @@ def main():
     for citation in subheading_predictions:
         pmid = citation["PMID"]
         for indexing_prediction in citation["Indexing"]:
-            if indexing_prediction["Type"].lower() ==  "descriptor" or indexing_prediction["Type"].lower() == "check tag":
+            if indexing_prediction["Type"].lower() ==  "descriptor" or indexing_prediction["Type"].lower() == "checktag":
                 subheadings = []
                 indexing_prediction["Subheadings"] = subheadings
                 dui = indexing_prediction["ID"]

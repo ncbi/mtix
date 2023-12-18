@@ -466,7 +466,7 @@ EXPECTED_MESH_HEADING_PREDICTIONS = [
         "Indexing": [
             {
                 "Term": "Humans",
-                "Type": "Check Tag",
+                "Type": "CheckTag",
                 "ID": "D006801",
                 "IM": "NO",
                 "Reasons": [ { "Kind": "MTIX", "Score": 1.000 } ]
@@ -501,7 +501,7 @@ EXPECTED_MESH_HEADING_PREDICTIONS = [
             },
             {
                 "Term": "Male",
-                "Type": "Check Tag",
+                "Type": "CheckTag",
                 "ID": "D008297",
                 "IM": "NO",
                 "Reasons": [ { "Kind": "MTIX", "Score":  0.879 } ]
@@ -515,7 +515,7 @@ EXPECTED_MESH_HEADING_PREDICTIONS = [
             },
             {
                 "Term": "Young Adult",
-                "Type": "Check Tag",
+                "Type": "CheckTag",
                 "ID": "D055815",
                 "IM": "NO",
                 "Reasons": [ { "Kind": "MTIX", "Score":  0.827 } ]
@@ -529,7 +529,7 @@ EXPECTED_MESH_HEADING_PREDICTIONS = [
             },
             {
                 "Term": "Adolescent",
-                "Type": "Check Tag",
+                "Type": "CheckTag",
                 "ID": "D000293",
                 "IM": "NO",
                 "Reasons": [ { "Kind": "MTIX", "Score":  0.668 } ]
@@ -563,7 +563,7 @@ EXPECTED_MESH_HEADING_PREDICTIONS = [
         "Indexing": [
             {
                 "Term": "Humans",
-                "Type": "Check Tag",
+                "Type": "CheckTag",
                 "ID": "D006801",
                 "IM": "NO",
                 "Reasons": [ { "Kind": "MTIX", "Score":  0.999 } ]
@@ -601,7 +601,7 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
         "Indexing": [
             {
                 "Term": "Humans",
-                "Type": "Check Tag",
+                "Type": "CheckTag",
                 "ID": "D006801",
                 "IM": "NO",
                 "Reasons": [ { "Kind": "MTIX", "Score":  1.000 } ],
@@ -662,7 +662,7 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
             },
             {
                 "Term": "Male",
-                "Type": "Check Tag",
+                "Type": "CheckTag",
                 "ID": "D008297",
                 "IM": "NO",
                 "Reasons": [ { "Kind": "MTIX", "Score":  0.879 } ],
@@ -685,7 +685,7 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
             },
             {
                 "Term": "Young Adult",
-                "Type": "Check Tag",
+                "Type": "CheckTag",
                 "ID": "D055815",
                 "IM": "NO",
                 "Reasons": [ { "Kind": "MTIX", "Score": 0.827 } ],
@@ -708,7 +708,7 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
             },
             {
                 "Term": "Adolescent",
-                "Type": "Check Tag",
+                "Type": "CheckTag",
                 "ID": "D000293",
                 "IM": "NO",
                 "Reasons": [ { "Kind": "MTIX", "Score": 0.668 } ],
@@ -754,7 +754,7 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
             },
             {
                 "Term": "Journal Article",
-                "Type": "Publication Type",
+                "Type": "PublicationType",
                 "ID": "D016428",
                 "IM": "NO",
                 "Reasons": [ { "Kind": "MTIX", "Score": 0.999 } ],
@@ -767,7 +767,7 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
         "Indexing": [
             {
                 "Term": "Humans",
-                "Type": "Check Tag",
+                "Type": "CheckTag",
                 "ID": "D006801",
                 "IM": "NO",
                 "Reasons": [ { "Kind": "MTIX", "Score": 0.999 } ],
@@ -825,14 +825,14 @@ EXPECTED_MESH_HEADING_PREDICTIONS_WITH_PT_SCR_SUBHEADING = [
             },
             {
                 "Term": "Journal Article",
-                "Type": "Publication Type",
+                "Type": "PublicationType",
                 "ID": "D016428",
                 "IM": "NO",
                 "Reasons": [ { "Kind": "MTIX", "Score": 0.999 } ],
             },
             {
                 "Term": "Review",
-                "Type": "Publication Type",
+                "Type": "PublicationType",
                 "ID": "D016454",
                 "IM": "NO",
                 "Reasons": [ { "Kind": "MTIX", "Score": 0.900 } ],
@@ -1173,7 +1173,7 @@ MESH_HEADING_PREDICTIONS_WITH_PT_SCR = [
         "Indexing": [
             {
                 "Term": "Humans",
-                "Type": "Check Tag",
+                "Type": "CheckTag",
                 "ID": "D006801",
                 "IM": "NO",
                 "Reasons": [ { "Kind": "MTIX", "Score": 1.000 } ]
@@ -1208,7 +1208,7 @@ MESH_HEADING_PREDICTIONS_WITH_PT_SCR = [
             },
             {
                 "Term": "Male",
-                "Type": "Check Tag",
+                "Type": "CheckTag",
                 "ID": "D008297",
                 "IM": "NO",
                 "Reasons": [ { "Kind": "MTIX", "Score": 0.879 } ]
@@ -1222,7 +1222,7 @@ MESH_HEADING_PREDICTIONS_WITH_PT_SCR = [
             },
             {
                 "Term": "Young Adult",
-                "Type": "Check Tag",
+                "Type": "CheckTag",
                 "ID": "D055815",
                 "IM": "NO",
                 "Reasons": [ { "Kind": "MTIX", "Score": 0.827 } ]
@@ -1236,7 +1236,7 @@ MESH_HEADING_PREDICTIONS_WITH_PT_SCR = [
             },
             {
                 "Term": "Adolescent",
-                "Type": "Check Tag",
+                "Type": "CheckTag",
                 "ID": "D000293",
                 "IM": "NO",
                 "Reasons": [ { "Kind": "MTIX", "Score": 0.668 } ]
@@ -1264,7 +1264,7 @@ MESH_HEADING_PREDICTIONS_WITH_PT_SCR = [
             },
             {
                 "Term": "Journal Article",
-                "Type": "Publication Type",
+                "Type": "PublicationType",
                 "ID": "D016428",
                 "IM": "NO",
                 "Reasons": [ { "Kind": "MTIX", "Score": 0.999 } ]
@@ -1277,7 +1277,7 @@ MESH_HEADING_PREDICTIONS_WITH_PT_SCR = [
         "Indexing": [
             {
                 "Term": "Humans",
-                "Type": "Check Tag",
+                "Type": "CheckTag",
                 "ID": "D006801",
                 "IM": "NO",
                 "Reasons": [ { "Kind": "MTIX", "Score": 0.999 } ]
@@ -1305,14 +1305,14 @@ MESH_HEADING_PREDICTIONS_WITH_PT_SCR = [
             },
             {
                 "Term": "Journal Article",
-                "Type": "Publication Type",
+                "Type": "PublicationType",
                 "ID": "D016428",
                 "IM": "NO",
                 "Reasons": [ { "Kind": "MTIX", "Score": 0.999 } ]
             },
             {
                 "Term": "Review",
-                "Type": "Publication Type",
+                "Type": "PublicationType",
                 "ID": "D016454",
                 "IM": "NO",
                 "Reasons": [ { "Kind": "MTIX", "Score": 0.900 } ]
@@ -2156,16 +2156,16 @@ SUBHEADING_NAME_LOOKUP = {
 
 
 TYPE_LOOKUP = {
-    9291: "Check Tag",
+    9291: "CheckTag",
     8857: "Descriptor",
     7653: "Descriptor",
     7160: "Descriptor",
     15149: "Descriptor",
-    10719: "Check Tag",
+    10719: "CheckTag",
     14670: "Descriptor",
-    27783: "Check Tag",
+    27783: "CheckTag",
     12453: "Descriptor",
-    3075: "Check Tag",
+    3075: "CheckTag",
     17432: "Descriptor",
     14390: "Descriptor",
     14386: "Descriptor",

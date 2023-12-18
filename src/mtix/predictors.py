@@ -223,7 +223,7 @@ class SubheadingPredictor:
     
     def _subheadings_allowed(self, mesh_heading_prediction):
         _type = mesh_heading_prediction["Type"].strip().lower()
-        if (_type == "descriptor" or _type == "check tag"):
+        if (_type == "descriptor" or _type == "checktag"):
             allowed = True
         else:
             allowed = False

@@ -39,7 +39,7 @@ def main():
     for example in mesh_heading_ground_truth_mod:
         pmid = int(example["PMID"])
         for example_indexing in example["Indexing"]:
-            if example_indexing["Type"].lower() ==  "descriptor" or example_indexing["Type"].lower() ==  "check tag":
+            if example_indexing["Type"].lower() ==  "descriptor" or example_indexing["Type"].lower() ==  "checktag":
                 example_indexing["Subheadings"] = []
                 dui = example_indexing["ID"]
                 if pmid in test_set_indexing and dui in test_set_indexing[pmid]:
